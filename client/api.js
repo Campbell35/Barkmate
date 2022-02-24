@@ -18,6 +18,19 @@ export function addFruit (fruit, token) {
     .catch(logError)
 }
 
+export function addUserToChat (user) {
+  return request.post('/chat/api')
+    .send({
+      ...user,
+      username: 'adam_la_morre',
+      first_name: 'Adam',
+      last_name: 'La Morre',
+      secret: 'pass1234'
+    })
+    .then(res => res.body.user)
+    .catch(logError)
+}
+
 export function updateFruit (fruit, token) {
   return request.put(`${rootUrl}/fruits`)
     .set('authorization', `Bearer ${token}`)

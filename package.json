@@ -43,7 +43,7 @@
     "express-jwt": "^6.1.0",
     "express-jwt-authz": "^2.4.1",
     "jwks-rsa": "^2.0.4",
-    "knex": "^0.21.17",
+    "knex": "^0.21.21",
     "react-chat-engine": "^1.11.22",
     "react-redux": "^7.2.5",
     "redux": "^4.1.1",

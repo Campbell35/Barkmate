@@ -13,10 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
      * all authorization operations
      */
     <Auth0Provider
-      domain={'harakeke-kateh.au.auth0.com'}
-      clientId={'xsHgqiZXNYicjKfSLdc3jPcXp4H2WYO9'}
+      domain={'dev-wep-oiws.us.auth0.com'}
+      clientId={'fqR70IbSCiCLukczxqDaiJYwwuCvSshP'}
       redirectUri={window.location.origin}
-      audience='https://fruits/api'
+      audience='https://barkmates/api'
     >
       <Provider store={store}>
         <App />

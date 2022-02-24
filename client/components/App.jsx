@@ -5,7 +5,7 @@ import Nav from './Nav'
 import Fruits from './Fruits'
 import { cacheUser } from '../auth0-utils'
 import { useAuth0 } from '@auth0/auth0-react'
-import Register from './Register'
+import ProfilePage from './ProfilePage'
 
 function App () {
   cacheUser(useAuth0)
@@ -13,7 +13,7 @@ function App () {
     <Router>
       <Route path='/' component={Nav} />
       <Route exact path='/' component={Fruits} />
-      <Route exact path='/register' component={Register} />
+      <Route exact path='/profile' component={ProfilePage} />
     </Router>
   )
 }

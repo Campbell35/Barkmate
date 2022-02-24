@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
-import { addUser } from '../api'
+import { addUser, addUserToChat } from '../api'
 
 import { GridForm, ColOne, ColTwo, Button } from './Styled'
 
@@ -22,6 +22,7 @@ function Register () {
 
   async function handleClick () {
     await addUser(form)
+    await addUserToChat(form)
     history.push('/')
   }
 

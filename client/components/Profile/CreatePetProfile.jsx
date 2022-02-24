@@ -7,8 +7,7 @@ const initialState = {
   pets_temprament: '',
   pets_energy_levels: '',
   pets_description: '',
-  humans_name: '',
-  humans_gender: ''
+  pet_image_link: ''
 
 }
 
@@ -23,9 +22,9 @@ function ProfilePage () {
     })
   }
 
-  function handleSubmit (event) {
+  async function handleSubmit (event) {
     event.preventDefault()
-
+    await addPet(form)
     setForm(initialState)
     history.push('/')
   }
@@ -34,11 +33,11 @@ function ProfilePage () {
     <>
       <form>
         {/* pets_name  */}
-        <input type='text' name='pets_name' value='form.pets_name' onChange={handleFormChange} required/>
+        <input type='text' name='pets_name' value={form.pets_name} onChange={handleFormChange} required/>
         {/* pets_breed */}
-        <input type='text' name='pets_breed' value='form.pets_breed' onChange={handleFormChange} required/>
+        <input type='text' name='pets_breed' value={form.pets_breed} onChange={handleFormChange} required/>
         {/* pets_temprament */}
-        <input type='text' name='pets_temprament' value='form.pets_temprament' onChange={handleFormChange} required/>
+        <input type='text' name='pets_temprament' value={form.pets_temprament} onChange={handleFormChange} required/>
         {/* pets_energy_levels */}
         <input type='radio' name='pets_energy_levels' value='1' onChange={handleFormChange}/>
         <label htmlFor='1'>+</label>
@@ -51,16 +50,8 @@ function ProfilePage () {
         <input type='radio' name='pets_energy_levels' value='5' onChange={handleFormChange}/>
         <label htmlFor='5'>+</label>
         {/* pets_description */}
-        <input type='text' name='pets_description' value='form.pets_description' onChange={handleFormChange} required/>
-        {/* humans_name */}
-        <input type='text' name='humans_name' value='form.humans_name' onChange={handleFormChange} required/>
-        {/* humans_gender */}
-        <input type='radio' name='humans_gender' value='female' onChange={handleFormChange}/>
-        <label htmlFor='female'>Female</label>
-        <input type='radio' name='humans_gender' value='male' onChange={handleFormChange}/>
-        <label htmlFor='male'>Male</label>
-        <input type='radio' name='humans_gender' value='non_binary' onChange={handleFormChange}/>
-        <label htmlFor='non_binary'>Non-Binary</label>
+        <input type='text' name='pets_description' value={form.pets_description} onChange={handleFormChange} required/>
+        <button type='button' onClick={handleSubmit}>Submit</button>
       </form>
 
     </>

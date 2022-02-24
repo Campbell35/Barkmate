@@ -1,0 +1,32 @@
+@font-face {
+    font-family: Bazoo Tow NF W01 Regular;
+    src:url(Bazoo\ Tow\ NF\ W01\ Regular.ttf);
+}
+
+body {
+    background-color: rgb(29, 201, 29);
+}
+
+.dog-card-container{
+    width: 40vw;
+    margin: 0 auto;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: rgb(155, 25, 25);
+    font-family: 'Bazoo Tow NF W01 Regular';
+    color: wheat;
+  }
+
+  .dog-card-img{
+    border-radius: 15px;
+    width: 100%;
+    height: auto;
+  }
+
+  .dog-card-nav {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    }
+  

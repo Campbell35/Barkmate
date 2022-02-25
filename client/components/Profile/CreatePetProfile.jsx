@@ -31,7 +31,7 @@ function ProfilePage () {
 
   return (
     <>
-      <form>
+      <form className='form-wrapper'>
         {/* pets_name  */}
         <input type='text' name='pets_name' value={form.pets_name} onChange={handleFormChange} required/>
         {/* pets_breed */}

@@ -29,9 +29,11 @@ function CreateProfilePage () {
 
   return (
     <>
-      <form>
+      <form className='form-wrapper'>
         {/* humans_name */}
-        <input type='text' name='humans_name' value={form.humans_name} onChange={handleFormChange} required/>
+        <p>User Name:</p>
+        <input type='text' placeholder='choose your username' name='humans_name' value={form.humans_name} onChange={handleFormChange} required/>
+        <p>Post code:</p>
         <input type='text' name='post_code' value={form.post_code} onChange={handleFormChange} required/>
         <button type='button' onClick={handleSubmit}>Submit</button>
         {/* humans_gender */}

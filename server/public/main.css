@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @font-face {
     font-family: Bazoo Tow NF W01 Regular;
     src:url(Bazoo\ Tow\ NF\ W01\ Regular.ttf);
@@ -63,3 +64,29 @@ body {
       max-width: 40%;
       max-height: 40%;
       }
+=======
+.form-wrapper input[type=text], .form-wrapper select {
+    width: 100%;
+    padding: 1rem;
+    margin: 0.5rem 0 1rem 0;
+    display: inline-block;
+    border: none;
+    border-radius: 0.2rem;
+    box-sizing: border-box;
+    background-color: #301453;
+    color: white;
+}
+
+button{
+    color: #ffffff;
+    padding: 15px;
+    background-color: #ff17ce;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 0;
+    transition: all 0.4s;
+    margin: 0 8px 8px 0;
+}
+>>>>>>> 4e536f63e183c32f6d753c7bc98a29333ca7fc68

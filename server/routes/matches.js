@@ -7,15 +7,13 @@ module.exports = router
 
 // A route to direct you to the matches page after you sign in
 // GET /api/v1/matches
-router.get('/', (req, res) => {
-  db.getMatches()
-    .then(result => {
-      console.log(result)
-      res.json(result)
-      return null
-    })
-    .catch(error => {
-      res.status(500).json('insert operation has failed')
-      console.error(error)
-    })
+
+router.get('/', async (req, res) => {
+  try {
+    const matches = await db.getMatches()
+    res.json({ matches })
+  } catch (err) {
+    console.error(err)
+    res.status(500).send(err.message)
+  }
 })

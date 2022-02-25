@@ -1,92 +1,25 @@
-<<<<<<< HEAD
-@font-face {
-    font-family: Bazoo Tow NF W01 Regular;
-    src:url(Bazoo\ Tow\ NF\ W01\ Regular.ttf);
+.form-wrapper input[type="text"],
+.form-wrapper select {
+  width: 100%;
+  padding: 1rem;
+  margin: 0.5rem 0 1rem 0;
+  display: inline-block;
+  border: none;
+  border-radius: 0.2rem;
+  box-sizing: border-box;
+  background-color: #301453;
+  color: white;
 }
 
-body {
-    background-color: rgb(29, 201, 29);
+button {
+  color: #ffffff;
+  padding: 15px;
+  background-color: #ff17ce;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 0;
+  transition: all 0.4s;
+  margin: 0 8px 8px 0;
 }
-
-.dog-card-container{
-    width: 40vw;
-    margin: 0 auto;
-    box-shadow: 3px 3px 5px 6px #ccc;
-    border-radius: 15px;
-    padding: 15px;
-    background-color: rgb(155, 25, 25);
-    font-family: 'Bazoo Tow NF W01 Regular';
-    color: wheat;
-  }
-
-  .dog-card-img{
-    border-radius: 15px;
-    width: 100%;
-    height: auto;
-  }
-
-  .dog-card-nav {
-    position: absolute;
-    top: 8px;
-    right: 16px;
-    }
-  
-    .leftSideCard {
-      font-family: 'Bazoo Tow NF W01 Regular';
-      color:  rgb(155, 25, 25);
-        position: absolute;
-        left: 150px;
-        width: 200px;
-        height: 120px;
-    }
-
-    .rightSideCard {
-      font-family: 'Bazoo Tow NF W01 Regular';
-      color:  rgb(155, 25, 25);
-      position: absolute;
-      right: 150px;
-      width: 200px;
-      height: 120px;
-    }
-
-    .leftArrow{
-    position: relative;
-    bottom: 50px;
-    right: 250px;
-    max-width: 40%;
-    max-height: 40%;
-    }
-
-    .rightArrow{
-      position: relative;
-      bottom: 50px;
-      left: 350px;
-      max-width: 40%;
-      max-height: 40%;
-      }
-=======
-.form-wrapper input[type=text], .form-wrapper select {
-    width: 100%;
-    padding: 1rem;
-    margin: 0.5rem 0 1rem 0;
-    display: inline-block;
-    border: none;
-    border-radius: 0.2rem;
-    box-sizing: border-box;
-    background-color: #301453;
-    color: white;
-}
-
-button{
-    color: #ffffff;
-    padding: 15px;
-    background-color: #ff17ce;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 14px;
-    border-radius: 8px;
-    border: 0;
-    transition: all 0.4s;
-    margin: 0 8px 8px 0;
-}
->>>>>>> 4e536f63e183c32f6d753c7bc98a29333ca7fc68

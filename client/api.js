@@ -10,6 +10,19 @@ export function getFruits () {
     .catch(logError)
 }
 
+export function getPet (id) {
+  return request.get(`${rootUrl}/pets`)
+    .then(res => {
+      return res.body.pets
+    })
+    .then(pets => {
+      const pet = pets.find(pet => pet.id === id)
+      console.log(pet)
+      return pet
+    })
+    .catch(logError)
+}
+
 export function addFruit (fruit, token) {
   return request.post(`${rootUrl}/fruits`)
     .set('authorization', `Bearer ${token}`)

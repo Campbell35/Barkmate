@@ -7,6 +7,7 @@ import { cacheUser } from '../auth0-utils'
 import { useAuth0 } from '@auth0/auth0-react'
 import ProfilePage from './Profile/CreateProfilePage'
 import CreatePetProfile from './Profile/CreatePetProfile'
+import PetProfile from './Profile/PetProfile'
 import Register from './Register'
 import Chat from './Chat'
 
@@ -19,6 +20,7 @@ function App () {
       <Route exact path='/' component={Fruits} />
       <Route exact path='/profile/create' component={ProfilePage} />
       <Route exact path='/petprofile/create' component={CreatePetProfile} />
+      <Route exact path='/petprofile' component={PetProfile} />
     </Router>
   )
 }

@@ -44,7 +44,7 @@ function Nav () {
           <a href='/' onClick={handleSignIn}>Sign in</a>
         </IfNotAuthenticated>
       </NavGroup>
-      <h1>Fruit FTW!</h1>
+      <h1>Barkmates</h1>
     </>
   )
 }

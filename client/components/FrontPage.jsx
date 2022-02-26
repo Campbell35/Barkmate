@@ -6,9 +6,9 @@ const Frontpage = () => {
   const [error, setError] = useState('')
   const [pet, setPet] = useState({})
   const [petArr, setPetArr] = useState([])
-
-  const user = useSelector(state => state.human)
-  console.log(user)
+  const [ind, setInd] = useState(1)
+  const owner = useSelector(state => state.human)
+  console.log(owner)
 
   useEffect(() => {
     getPets()
@@ -25,8 +25,20 @@ const Frontpage = () => {
       .catch(err => setError(err.message))
   }, [])
 
-  function clickHandleLike () {
-    addLike(user.id, pet.owner_id)
+  async function clickHandleLike () {
+    // setUserID(useSelector(state => state.human))
+    await addLike(owner.id, Number(pet.owner_id))
+  }
+
+  function clickHandleRight () {
+    setInd(ind + 1)
+    console.log(ind)
+    const newPetInd = petArr[ind]
+    getPets()
+      .then(pets => {
+        return setPet(pets[newPetInd])
+      })
+      .catch(err => setError(err.message))
   }
 
   return (
@@ -51,7 +63,10 @@ const Frontpage = () => {
           <p> VIEW PROFILE... </p>
           <div>
             <h2>Match ME</h2>
-            <img className='pawheart' src='/images/pawheart.png' onClick={clickHandleLike}/>
+            {owner.id
+              ? <img className='pawheart' src='/images/pawheart.png' onClick={clickHandleLike}/>
+              : <p>loading</p>
+            }
           </div>
 
           <div className="clear"></div>
@@ -76,7 +91,7 @@ const Frontpage = () => {
 
       <div>
 
-        <img className="rightArrow" src='/images/rightArrow.png'/>
+        <img className="rightArrow" src='/images/rightArrow.png' onClick={clickHandleRight}/>
 
       </div>
       <div>

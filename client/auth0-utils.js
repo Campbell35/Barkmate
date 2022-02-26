@@ -9,19 +9,19 @@ export async function cacheUser (useAuth0, state) {
 
   const { isAuthenticated, getAccessTokenSilently, user } = useAuth0()
   if (isAuthenticated && !state?.token) {
-    const accessToken = await getAccessTokenSilently()
-    const human = getHuman(user.sub)
-    if (human.id !== undefined) {
-      store.dispatch(setHuman(human))
-    }
     try {
-      const userToSave = {
-        auth0Id: user.sub,
-        email: user.email,
-        token: accessToken
+      const accessToken = await getAccessTokenSilently()
+      const existingHuman = await getHuman(user.sub)
+      if (existingHuman) {
+        store.dispatch(setHuman(existingHuman))
+      } else {
+        const userToSave = {
+          auth0Id: user.sub,
+          email: user.email,
+          token: accessToken
+        }
+        store.dispatch(setHuman(userToSave))
       }
-
-      store.dispatch(setUser(userToSave))
     } catch (err) {
       console.error(err)
     }

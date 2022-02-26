@@ -9,7 +9,7 @@ const emptyUser = {
   post_code: ''
 }
 
-export default function human (state = {}, action) {
+export default function human (state = emptyUser, action) {
   switch (action.type) {
     case SET_HUMAN:
       return action.human

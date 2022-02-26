@@ -1,7 +1,10 @@
 const connection = require('./connection')
 
-function getHumans (db = connection) {
-  return db('humans').select()
+function getHumans (id, db = connection) {
+  return db('humans')
+    .where({
+      auth0_id: id
+    })
 }
 
 function addAHuman (human, db = connection) {

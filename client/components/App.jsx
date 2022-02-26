@@ -13,7 +13,6 @@ import Chat from './Chat'
 import { useSelector } from 'react-redux'
 
 function App () {
-
   cacheUser()
   return (
     <Router>
@@ -24,7 +23,6 @@ function App () {
       <Route exact path='/profile/create' component={ProfilePage} />
       <Route exact path='/petprofile/create' component={CreatePetProfile} />
       <Route exact path='/petprofile' component={PetProfile} />
-      {/* <Route exact path='/' component={Fruits} /> */}
       {/* <Route exact path='/profile' component={ProfilePage} /> */}
     </Router>
   )

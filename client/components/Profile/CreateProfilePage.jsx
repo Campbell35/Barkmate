@@ -8,16 +8,16 @@ function CreateProfilePage () {
   // set form state
   const dispatch = useDispatch()
   const [form, setForm] = useState({})
-  const user = useSelector(state => state.user)
+  const human = useSelector(state => state.human)
 
   useEffect(() => {
     setForm({
-      auth0_id: user?.auth0Id,
-      email: user?.email,
-      token: user?.token,
+      auth0_id: human?.auth0Id,
+      email: human?.email,
+      token: human?.token,
       name: ''
     })
-  }, [user])
+  }, [human])
 
   function handleFormChange (event) {
     setForm({

@@ -67,6 +67,19 @@ export function getHuman (auth0Id) {
     .catch(logError)
 }
 
+export function getLikes (id) {
+  return request.get(`${rootUrl}/likes`)
+    .then(res => {
+      return res.body.likes
+    })
+    .then(likes => {
+      const myLikes = likes.filter(like => like.human_id === id)
+      console.log(myLikes)
+      return myLikes
+    })
+    .catch(logError)
+}
+
 export function addLike (likerId, likedId) {
   const entry = {
     human_id: likerId,

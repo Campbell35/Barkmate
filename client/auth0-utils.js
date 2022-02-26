@@ -1,19 +1,26 @@
+import { useAuth0 } from '@auth0/auth0-react'
+
 import { setUser } from './actions/user'
 import { setHuman } from './actions/human'
-import { getHuman } from './api'
+import { setLikes } from './actions/likes'
+import { getHuman, getLikes } from './api'
 import store from './store'
 
-export async function cacheUser (useAuth0, state) {
+export async function cacheUser() {
+  const state = store.getState()
   // TODO: call the useAuth0 and destructure:
   // isAuthenticated, getAccessTokenSilently and user
 
   const { isAuthenticated, getAccessTokenSilently, user } = useAuth0()
-  if (isAuthenticated && !state?.token) {
+  if (isAuthenticated && !state.human?.token) {
     try {
       const accessToken = await getAccessTokenSilently()
       const existingHuman = await getHuman(user.sub)
+      console.log(existingHuman)
       if (existingHuman) {
+        const likes = await getLikes(existingHuman.id)
         store.dispatch(setHuman(existingHuman))
+        store.dispatch(setLikes(likes))
       } else {
         const userToSave = {
           auth0Id: user.sub,
@@ -21,6 +28,7 @@ export async function cacheUser (useAuth0, state) {
           token: accessToken
         }
         store.dispatch(setHuman(userToSave))
+        console.log(userToSave)
       }
     } catch (err) {
       console.error(err)

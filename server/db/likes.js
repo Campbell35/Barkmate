@@ -1,4 +1,3 @@
-const e = require('express')
 const connection = require('./connection')
 const matchFunc = require('../db/matches')
 

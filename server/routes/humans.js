@@ -9,9 +9,11 @@ module.exports = router
 // GET /api/v1/humans
 
 router.get('/', async (req, res) => {
+  const id = req.user.sub
   try {
-    const humans = await db.getHumans()
-    res.json({ humans })
+    const human = await db.getHuman(id)
+
+    res.json({ human })
   } catch (err) {
     console.error(err)
     res.status(500).send(err.message)
@@ -20,9 +22,12 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   console.log(req.body)
+  const human = req.body
+
+  human.auth0_id = req.user.sub
   try {
-    const humans = await db.addAHuman(req.body)
-    res.json({ humans })
+    const h = await db.addAHuman(human)
+    res.json({ human: h })
   } catch (err) {
     console.error(err)
     res.status(500).send(err.message)

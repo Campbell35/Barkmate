@@ -48,11 +48,14 @@ function ProfilePage () {
             <option value="4">High</option>
             <option value="5">Very High</option>
           </select>
+          {/* pets_breed */}
+          <p className='form-p'>Image Link:</p>
+          <input type='text' placeholder='Link to your dog&apos;s picture' name='pets_image' value={form.pets_image} onChange={handleFormChange} required/>
           {/* pets_description */}
           <p className='form-p'>Description:</p>
           <textarea type='text' className='description-text' placeholder='Describe your dog in a short paragraph!' name='pets_description' value={form.pets_description} onChange={handleFormChange} required/>
         </form>
-        <button type='button' onClick={handleSubmit}>Submit</button>
+        <button className='btn' type='button' onClick={handleSubmit}>Submit</button>
       </div>
     </>
   )

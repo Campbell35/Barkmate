@@ -1,16 +1,23 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useAuth0 } from '@auth0/auth0-react'
-
-const initialState = {
-  humans_name: '',
-  post_code: ''
-}
+import { addHuman, addUserToChat } from '../../api'
+import { setHuman } from '../../actions/human'
 
 function CreateProfilePage () {
   // set form state
-  const [form, setForm] = useState(initialState)
-  const user = useSelector(state => state)
+  const dispatch = useDispatch()
+  const [form, setForm] = useState({})
+  const user = useSelector(state => state.user)
+
+  useEffect(() => {
+    setForm({
+      auth0_id: user?.auth0Id,
+      email: user?.email,
+      token: user?.token,
+      name: ''
+    })
+  }, [user])
 
   function handleFormChange (event) {
     setForm({
@@ -21,10 +28,9 @@ function CreateProfilePage () {
 
   async function handleSubmit (event) {
     event.preventDefault()
+    dispatch(setHuman(form))
     await addHuman(form)
     await addUserToChat(form)
-    setForm(initialState)
-    history.push('/')
   }
 
   return (
@@ -33,9 +39,9 @@ function CreateProfilePage () {
         <form className='form-wrapper'>
           {/* humans_name */}
           <p className='form-p'>Username:</p>
-          <input type='text' placeholder='Choose your Username' name='humans_name' value={form.humans_name} onChange={handleFormChange} required/>
+          <input type='text' placeholder='Choose your Username' name='name' value={form.name} onChange={handleFormChange} required/>
           <p className='form-p'>Post code:</p>
-          <input type='text' placeholder='Enter your post code' name='post_code' value={form.post_code} onChange={handleFormChange} required/>
+          <input type='text' placeholder='Enter your post code' name='post_code' value={form.post_code} required/>
           {/* humans_gender */}
           {/* <input type='radio' name='humans_gender' value='female' onChange={handleFormChange}/>
         <label htmlFor='female'>Female</label>

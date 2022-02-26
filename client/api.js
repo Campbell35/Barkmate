@@ -10,6 +10,14 @@ export function getFruits () {
     .catch(logError)
 }
 
+export function getPets () {
+  return request.get(`${rootUrl}/pets`)
+    .then(res => {
+      return res.body.pets
+    })
+    .catch(logError)
+}
+
 export function getPet (id) {
   return request.get(`${rootUrl}/pets`)
     .then(res => {
@@ -17,7 +25,6 @@ export function getPet (id) {
     })
     .then(pets => {
       const pet = pets.find(pet => pet.id === id)
-      console.log(pet)
       return pet
     })
     .catch(logError)
@@ -28,6 +35,37 @@ export function addFruit (fruit, token) {
     .set('authorization', `Bearer ${token}`)
     .send({ fruit })
     .then(res => res.body.fruits)
+    .catch(logError)
+}
+
+export function addHuman (human) {
+  return request.post(`${rootUrl}/humans`)
+    .send(human)
+    .then(res => res.body.humans)
+    .catch(logError)
+}
+
+export function getHuman (auth0Id) {
+  return request.get(`${rootUrl}/humans`)
+    .then(res => {
+      return res.body.humans
+    })
+    .then(humans => {
+      const human = humans.find(human => human.auth0_id === auth0Id)
+      console.log(human)
+      return human
+    })
+    .catch(logError)
+}
+
+export function addLike (likerId, likedId) {
+  const entry = {
+    human_id: likerId,
+    liked_human_id: likedId
+  }
+  return request.post(`${rootUrl}/likes`)
+    .send(entry)
+    .then(res => res.body.likes)
     .catch(logError)
 }
 

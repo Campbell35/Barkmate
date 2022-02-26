@@ -8,4 +8,3 @@ exports.up = (knex) => {
 exports.down = (knex) => {
   return knex.schema.dropTable('users')
 }
-z

@@ -16,10 +16,10 @@ function App () {
   cacheUser(useAuth0)
   return (
     <Router>
-      <Route path='/' component={FrontPage} />
+      <Route path='/home' component={FrontPage} />
       <Route path='/' component={Nav} />
       <Route path='/chat' component={Chat} />
-      <Route exact path='/' component={Fruits} />
+      <Route exact path='/fruits' component={Fruits} />
       <Route exact path='/profile/create' component={ProfilePage} />
       <Route exact path='/petprofile/create' component={CreatePetProfile} />
       <Route exact path='/petprofile' component={PetProfile} />

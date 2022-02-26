@@ -7,6 +7,7 @@ const userRoutes = require('./routes/users')
 const petsRoutes = require('./routes/pets')
 const humanRoutes = require('./routes/humans')
 const matchesRoutes = require('./routes/matches')
+const likesRoutes = require('./routes/likes')
 const server = express()
 
 server.use(express.json())
@@ -17,6 +18,7 @@ server.use('/api/v1/users', userRoutes)
 server.use('/api/v1/pets', petsRoutes)
 server.use('/api/v1/humans', humanRoutes)
 server.use('/api/v1/matches', matchesRoutes)
+server.use('/api/v1/likes', likesRoutes)
 server.post('/chat/api', (req, res) => {
   request
     .post('https://api.chatengine.io/users/')
@@ -27,7 +29,7 @@ server.post('/chat/api', (req, res) => {
     })
     .catch(err => {
       console.error(err.message)
-      res.error(err.message)
+      res.json(err.message)
     })
 })
 

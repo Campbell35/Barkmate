@@ -1,4 +1,6 @@
 import { setUser } from './actions/user'
+import { setHuman } from './actions/human'
+import { getHuman } from './api'
 import store from './store'
 
 export async function cacheUser (useAuth0, state) {
@@ -8,6 +10,10 @@ export async function cacheUser (useAuth0, state) {
   const { isAuthenticated, getAccessTokenSilently, user } = useAuth0()
   if (isAuthenticated && !state?.token) {
     const accessToken = await getAccessTokenSilently()
+    const human = getHuman(user.sub)
+    if (human.id !== undefined) {
+      store.dispatch(setHuman(human))
+    }
     try {
       const userToSave = {
         auth0Id: user.sub,

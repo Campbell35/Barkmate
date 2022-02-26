@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Nav from './Nav'
 import Fruits from './Fruits'
 import { cacheUser } from '../auth0-utils'
-import { useAuth0 } from '@auth0/auth0-react'
 import ProfilePage from './Profile/CreateProfilePage'
 import CreatePetProfile from './Profile/CreatePetProfile'
 import PetProfile from './Profile/PetProfile'
@@ -13,7 +12,7 @@ import Register from './Register'
 import Chat from './Chat'
 
 function App () {
-  cacheUser(useAuth0)
+  cacheUser()
   return (
     <Router>
       <Route path='/home' component={FrontPage} />

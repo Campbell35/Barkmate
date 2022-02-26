@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getPets, addLike } from '../api'
-import { useDispatch, useSelector } from 'react-redux'
-import { setLikes } from '../actions/likes'
+import { useSelector } from 'react-redux'
 
 const Frontpage = () => {
   const [error, setError] = useState('')
@@ -10,7 +9,6 @@ const Frontpage = () => {
   const [ind, setInd] = useState(1)
   const [liked, setLiked] = useState(false)
   const [welp, setWelp] = useState(false)
-  const dispatch = useDispatch()
   const owner = useSelector(state => state.human)
   const likes = useSelector(state => state.likes)
 
@@ -30,15 +28,8 @@ const Frontpage = () => {
   }, [])
 
   async function clickHandleLike () {
-    // setUserID(useSelector(state => state.human))
     await addLike(owner.id, Number(pet.owner_id))
     setLiked(true)
-    // const action = [...likes, {
-    //   human_id: owner.id,
-    //   liked_human_id: pet.owner_id
-    // }
-    // ]
-    // dispatch(setLikes(action))
   }
 
   function clickHandleRight () {

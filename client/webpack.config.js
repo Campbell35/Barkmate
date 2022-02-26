@@ -1,4 +1,8 @@
+require('dotenv').config()
 const path = require('path')
+const webpack = require('webpack')
+
+console.log(process.env)
 
 module.exports = {
   mode: 'development',
@@ -17,5 +21,16 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx']
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      process: 'process/browser'
+    }),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify({
+        AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
+        AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID
+      })
+    })
+  ],
   devtool: 'source-map'
 }

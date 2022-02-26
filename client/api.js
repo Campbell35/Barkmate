@@ -1,6 +1,25 @@
 import request from 'superagent'
 
+import store from './store'
+
 const rootUrl = '/api/v1'
+
+function authRequest (method, path, params, token) {
+  token = token || store.getState().human?.token
+  const req = request[method](`${rootUrl}${path}`).set('Authorization', `Bearer ${token}`)
+
+  if (params) {
+    if (method === 'get') {
+      req.query(params)
+    }
+
+    if (method === 'put' || method === 'post') {
+      req.send(params)
+    }
+  }
+
+  return req
+}
 
 export function getFruits () {
   return request.get(`${rootUrl}/fruits`)
@@ -10,16 +29,18 @@ export function getFruits () {
     .catch(logError)
 }
 
-export function getPets () {
+export function getPets (token) {
   return request.get(`${rootUrl}/pets`)
+    .set('authorization', `Bearer ${token}`)
     .then(res => {
       return res.body.pets
     })
     .catch(logError)
 }
 
-export function getPet (id) {
+export function getPet (id, token) {
   return request.get(`${rootUrl}/pets`)
+    .set('authorization', `Bearer ${token}`)
     .then(res => {
       return res.body.pets
     })
@@ -27,6 +48,14 @@ export function getPet (id) {
       const pet = pets.find(pet => pet.id === id)
       return pet
     })
+    .catch(logError)
+}
+
+export function addPet (pet, token) {
+  return request.post(`${rootUrl}/pets`)
+    .set('authorization', `Bearer ${token}`)
+    .send(pet)
+    .then(res => res.body.pets)
     .catch(logError)
 }
 
@@ -39,27 +68,24 @@ export function addFruit (fruit, token) {
 }
 
 export function addHuman (human) {
-  return request.post(`${rootUrl}/humans`)
-    .send(human)
-    .then(res => res.body.humans)
-    .catch(logError)
-}
-
-export function getHuman (auth0Id) {
-  return request.get(`${rootUrl}/humans`)
+  return authRequest('post', '/human', human)
     .then(res => {
-      return res.body.humans
-    })
-    .then(humans => {
-      const human = humans.find(human => human.auth0_id === auth0Id)
-      // console.log(human)
-      return human
+      return res.body.human
     })
     .catch(logError)
 }
 
-export function getLikes (id) {
+export function getHuman (token) {
+  return authRequest('get', '/human', null, token)
+    .then(res => {
+      return res.body.human
+    })
+    .catch(logError)
+}
+
+export function getLikes (id, token) {
   return request.get(`${rootUrl}/likes`)
+    .set('authorization', `Bearer ${token}`)
     .then(res => {
       return res.body.likes
     })
@@ -71,19 +97,21 @@ export function getLikes (id) {
     .catch(logError)
 }
 
-export function addLike (likerId, likedId) {
+export function addLike (likerId, likedId, token) {
   const entry = {
     human_id: likerId,
     liked_human_id: likedId
   }
   return request.post(`${rootUrl}/likes`)
+    .set('authorization', `Bearer ${token}`)
     .send(entry)
     .then(res => res.body.likes)
     .catch(logError)
 }
 
-export function addUserToChat (user) {
+export function addUserToChat (user, token) {
   return request.post('/chat/api')
+    .set('authorization', `Bearer ${token}`)
     .send({
       ...user,
       username: 'adam_la_morre',
@@ -111,7 +139,7 @@ export function deleteFruit (id, token) {
     .catch(logError)
 }
 
-export async function addUser (user) {
+export async function addUser (user, token) {
   return request.post(`${rootUrl}/users`)
     .send(user)
     .catch(logError)

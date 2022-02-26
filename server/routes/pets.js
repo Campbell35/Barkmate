@@ -1,5 +1,5 @@
 const express = require('express')
-// TODO: import checkJwt
+const checkJWT = require('../auth0')
 const db = require('../db/pets')
 
 const router = express.Router()

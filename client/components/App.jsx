@@ -8,7 +8,6 @@ import ProfilePage from './Profile/CreateProfilePage'
 import CreatePetProfile from './Profile/CreatePetProfile'
 import PetProfile from './Profile/PetProfile'
 import FrontPage from './FrontPage'
-import Register from './Register'
 import Chat from './Chat'
 
 function App () {
@@ -22,7 +21,6 @@ function App () {
       <Route exact path='/profile/create' component={ProfilePage} />
       <Route exact path='/petprofile/create' component={CreatePetProfile} />
       <Route exact path='/petprofile' component={PetProfile} />
-      {/* <Route exact path='/' component={Fruits} /> */}
       {/* <Route exact path='/profile' component={ProfilePage} /> */}
     </Router>
   )

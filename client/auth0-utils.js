@@ -13,8 +13,10 @@ export async function cacheUser () {
   const { isAuthenticated, getAccessTokenSilently, user } = useAuth0()
   if (isAuthenticated && !state.human?.token) {
     try {
-      const accessToken = await getAccessTokenSilently()
-      const existingHuman = await getHuman(user.sub)
+      const accessToken = await getAccessTokenSilently({
+        audience: `https://${process.env.AUTH0_DOMAIN}/api/v2/`
+      })
+      const existingHuman = await getHuman(accessToken)
       if (existingHuman) {
         const likes = await getLikes(existingHuman.id)
         store.dispatch(setHuman(existingHuman))

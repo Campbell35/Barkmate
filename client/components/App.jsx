@@ -8,9 +8,7 @@ import ProfilePage from './Profile/CreateProfilePage'
 import CreatePetProfile from './Profile/CreatePetProfile'
 import PetProfile from './Profile/PetProfile'
 import FrontPage from './FrontPage'
-import Register from './Register'
 import Chat from './Chat'
-import { useSelector } from 'react-redux'
 
 function App () {
   cacheUser()

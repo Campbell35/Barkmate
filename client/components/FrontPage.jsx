@@ -13,8 +13,6 @@ const Frontpage = () => {
   const likes = useSelector(state => state.likes)
 
   useEffect(async () => {
-    const pet = await getRandomPet()
-
     setPet(pet)
     getPets()
       .then(pets => {

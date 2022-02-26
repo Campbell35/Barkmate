@@ -16,22 +16,8 @@ server.use(express.json())
 server.use(express.static(path.join(__dirname, 'public')))
 
 // anything below here requires auth
-server.use(ensureUser)
-server.use(checkJwt)
-
-server.use((req, res, next) => {
-  console.log(req.user)
-
-  next()
-})
-
-// server.use(function (err, req, res, next) {
-//   if (err.name === 'UnauthorizedError') {
-//     res.sendStatus(401).send('invalid token...');
-//   }
-//   console.log(req.user)
-//   next()
-// })
+server.use('/api', ensureUser)
+server.use('/api', checkJwt)
 
 server.use('/api/v1/fruits', fruitRoutes)
 server.use('/api/v1/users', userRoutes)

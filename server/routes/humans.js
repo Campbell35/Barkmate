@@ -1,7 +1,6 @@
 const express = require('express')
 const db = require('../db/humans')
 
-
 const router = express.Router()
 
 module.exports = router
@@ -13,6 +12,7 @@ router.get('/', async (req, res) => {
   const id = req.user.sub
   try {
     const human = await db.getHuman(id)
+
     res.json({ human })
   } catch (err) {
     console.error(err)

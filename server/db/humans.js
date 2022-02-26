@@ -1,10 +1,11 @@
 const connection = require('./connection')
 
-function getHumans (id, db = connection) {
+function getHuman (id, db = connection) {
   return db('humans')
     .where({
       auth0_id: id
     })
+    .first()
 }
 
 function addAHuman (human, db = connection) {
@@ -14,6 +15,6 @@ function addAHuman (human, db = connection) {
 }
 
 module.exports = {
-  getHumans,
+  getHuman,
   addAHuman
 }

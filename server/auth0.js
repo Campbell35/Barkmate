@@ -1,8 +1,9 @@
+require('dotenv').config()
 const jwt = require('express-jwt')
 const jwks = require('jwks-rsa')
 
 // TODO: set the domain and audience (API Identifier)
-const domain = 'dev-wep-oiws.us.auth0.com'
+const domain = process.env.AUTH0_DOMAIN
 const audience = 'https://barkmates/api'
 
 const checkJwt = jwt({

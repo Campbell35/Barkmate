@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from 'react'
-import { useAuth0 } from '@auth0/auth0-react'
-
-const initialState = {
-  pets_name: '',
-  pets_breed: '',
-  pets_temprament: '',
-  pets_energy_levels: '',
-  pets_description: '',
-  pet_image_link: ''
-
-}
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addPet } from '../../api'
 
 function ProfilePage () {
+  const dispatch = useDispatch()
   // set form state
-  const [form, setForm] = useState(initialState)
+  const [form, setForm] = useState({
+    pets_name: '',
+    pets_breed: '',
+    pets_temprament: '',
+    pets_energy_levels: '',
+    pets_description: '',
+    pet_image_link: ''
+  })
 
   function handleFormChange (event) {
     setForm({
@@ -24,8 +23,8 @@ function ProfilePage () {
 
   async function handleSubmit (event) {
     event.preventDefault()
+    dispatch(setForm(form))
     await addPet(form)
-    setForm(initialState)
     history.push('/')
   }
 
@@ -54,8 +53,10 @@ function ProfilePage () {
           {/* pets_description */}
           <p className='form-p'>Description:</p>
           <textarea type='text' className='description-text' placeholder='Describe your dog in a short paragraph!' name='pets_description' value={form.pets_description} onChange={handleFormChange} required/>
+
         </form>
         <button className='btn' type='button' onClick={handleSubmit}>Submit</button>
+        
       </div>
     </>
   )

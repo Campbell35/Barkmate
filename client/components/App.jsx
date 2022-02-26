@@ -11,8 +11,11 @@ import PetProfile from './Profile/PetProfile'
 import FrontPage from './FrontPage'
 import Register from './Register'
 import Chat from './Chat'
+import { useSelector } from 'react-redux'
 
 function App () {
+  const store = useSelector(s => s)
+  console.log(store)
   cacheUser(useAuth0)
   return (
     <Router>

@@ -30,6 +30,13 @@ export function getPet (id) {
     .catch(logError)
 }
 
+export function addPet (pet) {
+  return request.post(`${rootUrl}/pets`)
+  .send(pet)
+  .then( res => res.body.pets)
+  .catch(logError)
+}
+
 export function addFruit (fruit, token) {
   return request.post(`${rootUrl}/fruits`)
     .set('authorization', `Bearer ${token}`)
@@ -37,6 +44,8 @@ export function addFruit (fruit, token) {
     .then(res => res.body.fruits)
     .catch(logError)
 }
+
+
 
 export function addHuman (human) {
   return request.post(`${rootUrl}/humans`)

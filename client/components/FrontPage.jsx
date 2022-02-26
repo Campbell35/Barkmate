@@ -10,7 +10,10 @@ const Frontpage = () => {
   const owner = useSelector(state => state.human)
   console.log(owner)
 
-  useEffect(() => {
+  useEffect(async () => {
+    const pet = await getRandomPet()
+
+    setPet(pet)
     getPets()
       .then(pets => {
         const arr = Array.from(Array(pets.length).keys())

@@ -51,7 +51,7 @@ const Frontpage = () => {
       <>
         <div className="dog-card-container">
           <div className="dog-card">
-            <h1>BRKMATES</h1>
+            <h1>BARKMATES</h1>
             <img className="dog-card-nav" src='/images/nav-icon.png'/>
             <img className="dog-card-img" src={pet.images}/>
             {/* <b>//Name :// </b> */}
@@ -83,31 +83,40 @@ const Frontpage = () => {
 
           </div>
           <div>
-            <div className="leftSideCard">
-              <button>
-                <h3>SEND TREATS</h3>
+            <div className="container21">
+              <div className="leftSideCard">
+                <button>
+                  <h3>SEND TREATS</h3>
 
-              </button>
+                </button>
+              </div>
+
+              <div>
+                <h3><img src="https://i.imgur.com/rHHDxoS.png"/> Like</h3>
+              </div>
+
+              <div className="rightSideCard">
+                <button>
+                  <h3>SEND PATS</h3>
+
+                </button>
+              </div>
             </div>
           </div>
 
-          <div className="rightSideCard">
-            <button>
-              <h3>SEND PATS</h3>
+          <div className="container21">
 
-            </button>
+            <div>
+
+              <img className="rightArrow" src='/images/leftArrow.png' />
+
+            </div>
+            <div>
+
+              <img className="leftArrow" src='/images/rightArrow.png'onClick={clickHandleRight}/>
+
+            </div>
           </div>
-        </div>
-
-        <div>
-
-          <img className="rightArrow" src='/images/rightArrow.png' onClick={clickHandleRight}/>
-
-        </div>
-        <div>
-
-          <img className="leftArrow" src='/images/leftArrow.png'/>
-
         </div>
 
       </>

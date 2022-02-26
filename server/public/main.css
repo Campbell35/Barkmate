@@ -1,166 +1,184 @@
-.form-wrapper input[type=text], .form-wrapper select {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 20rem;
-    padding: 1rem;
-    margin: 0.5rem 0 0.5rem 0;
-    display: inline-block;
-    border: none;
-    border-radius: 0.4rem;
-    box-sizing: border-box;
-    background-color: #592e19;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.form-wrapper input[type="text"],
+.form-wrapper select {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20rem;
+  padding: 1rem;
+  margin: 0.5rem 0 0.5rem 0;
+  display: inline-block;
+  border: none;
+  border-radius: 0.4rem;
+  box-sizing: border-box;
+  background-color: #592e19;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .form-div {
-    padding: 10px;
-    background-color: rgb(33, 187, 82);
-    border-radius: 5%;
-    width: 15rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+  padding: 10px;
+  background-color: rgb(33, 187, 82);
+  border-radius: 5%;
+  width: 15rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .form-div-pet {
-    padding: 20px;
-    background-color: rgb(33, 187, 82);
-    border-radius: 5%;
-    width: 30rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    margin-top:50px;
+  padding: 20px;
+  background-color: rgb(33, 187, 82);
+  border-radius: 5%;
+  width: 30rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 50px;
 }
 
 body {
-    background-color: rgb(98, 237, 142);
+  background-color: rgb(98, 237, 142);
 }
 
 .btn {
-    color: #c9bcbc;
-    padding: 15px;
-    background-color: #592e19;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 14px;
-    border-radius: 8px;
-    border: 0;
-    transition: all 0.4s;
-    margin: 8px 8px 8px 0;
-    text-align: center;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    margin-top: 2rem;
+  color: #c9bcbc;
+  padding: 15px;
+  background-color: #592e19;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 0;
+  transition: all 0.4s;
+  margin: 8px 8px 8px 0;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 2rem;
 }
 
 .btn:hover {
-    font-weight: 700;
-    color: white !important;
-    outline-color: white;
-    padding: 19px;
+  font-weight: 700;
+  color: white !important;
+  outline-color: white;
+  padding: 19px;
 }
 
 .form-p {
-    font-weight: bold;
-    color: #592e19;
-    margin-left: 1.5rem;
-    margin-bottom: 1.5rem;
+  font-weight: bold;
+  color: #592e19;
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .description-text {
-    height: 5rem;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 20rem;
-    height: 10rem;
-    padding: 1rem;
-    margin: 3.5rem 0 0.5rem 0;
-    display: inline-block;
-    border: none;
-    border-radius: 0.4rem;
-    box-sizing: border-box;
-    background-color: #592e19;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 5rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20rem;
+  height: 10rem;
+  padding: 1rem;
+  margin: 3.5rem 0 0.5rem 0;
+  display: inline-block;
+  border: none;
+  border-radius: 0.4rem;
+  box-sizing: border-box;
+  background-color: #592e19;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 @font-face {
-    font-family: Bazoo Tow NF W01 Regular;
-    src: url(Bazoo\ Tow\ NF\ W01\ Regular.ttf);
-  }
-  
-  .dog-card-container {
-    width: 40vw;
-    margin: 0 auto;
-    box-shadow: 3px 3px 5px 6px #ccc;
-    border-radius: 15px;
-    padding: 15px;
-    background-color: rgb(155, 25, 25);
-    font-family: "Bazoo Tow NF W01 Regular";
-    color: wheat;
-  }
-  
-  .dog-card-img {
-    border-radius: 15px;
-    width: 100%; 
-    height: 400px; 
-    object-fit: cover
-  }
-  
-  .dog-card-nav {
-    position: absolute;
-    top: 8px;
-    right: 16px;
-  }
-  
-  .button .leftSideCard {
-    font-family: "Bazoo Tow NF W01 Regular";
-    color: rgb(155, 25, 25);
-    position: absolute;
-    left: 150px;
-    width: 200px;
-    height: 250px;
-  }
-  
-  .button .rightSideCard {
-    font-family: "Bazoo Tow NF W01 Regular";
-    color: rgb(155, 25, 25);
-    position: absolute;
-  
-    right: 150px;
-    width: 200px;
-    height: 250px;
-  }
-  
-  .leftArrow {
-    position: absolute;
-    left: 150px;
-    width: 150px;
-    height: 120px;
-    max-height: 20%;
-    max-width: 20%;
-  }
-  
-  .rightArrow {
-    position: absolute;
-    right: 150px;
-    width: 150px;
-    height: 120px;
-    max-height: 20%;
-    max-width: 20%;
-  }
-  .pawheart {
-    text-align: center;
-    max-height: 10%;
-    max-width: 10%;
-  }
+  font-family: Bazoo Tow NF W01 Regular;
+  src: url(Bazoo\ Tow\ NF\ W01\ Regular.ttf);
+}
+
+.dog-card-container {
+  width: 40vw;
+  margin: 0 auto;
+  box-shadow: 3px 3px 5px 6px #ccc;
+  border-radius: 15px;
+  padding: 15px;
+  background-color: brown;
+  font-family: "Bazoo Tow NF W01 Regular";
+  color: wheat;
+}
+
+.dog-card-img {
+  border-radius: 15px;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.dog-card-nav {
+  position: sticky;
+  top: 8px;
+  right: 16px;
+}
+
+.button .leftSideCard {
+  font-family: "Bazoo Tow NF W01 Regular";
+  color: rgb(155, 25, 25);
+  position: absolute;
+  left: 150px;
+  width: 200px;
+  height: 250px;
+}
+
+.button .rightSideCard {
+  font-family: "Bazoo Tow NF W01 Regular";
+  color: rgb(155, 25, 25);
+  position: absolute;
+
+  right: 150px;
+  width: 200px;
+  height: 250px;
+}
+
+.leftArrow {
+  left: 150px;
+  width: 75px;
+  height: 60px;
+}
+
+.rightArrow {
+  right: 150px;
+  width: 75px;
+  height: 60px;
+}
+.pawheart {
+  text-align: center;
+  max-height: 10%;
+  max-width: 10%;
+}
+
+/* kateh */
+
+.container21 {
+  color: purple;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button2:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.button2 {
+  user-select: none;
+  transition: all 200ms;
+  cursor: pointer;
+}
+
+.button2:active {
+  transform: scale(0.9);
+  transition: all 200ms;
+}

@@ -52,7 +52,7 @@ export function getHuman (auth0Id) {
     })
     .then(humans => {
       const human = humans.find(human => human.auth0_id === auth0Id)
-      console.log(human)
+      // console.log(human)
       return human
     })
     .catch(logError)

@@ -17,7 +17,6 @@ export async function cacheUser () {
         audience: `https://${process.env.AUTH0_DOMAIN}/api/v2/`
       })
       const existingHuman = await getHuman(accessToken)
-      console.log(existingHuman)
       if (existingHuman) {
         const likes = await getLikes(existingHuman.id)
         store.dispatch(setHuman(existingHuman))

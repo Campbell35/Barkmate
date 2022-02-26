@@ -12,8 +12,7 @@ const Frontpage = () => {
   const owner = useSelector(state => state.human)
   const likes = useSelector(state => state.likes)
 
-  useEffect(async () => {
-    setPet(pet)
+  useEffect(() => {
     getPets()
       .then(pets => {
         const arr = Array.from(Array(pets.length).keys())

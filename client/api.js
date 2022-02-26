@@ -6,7 +6,6 @@ const rootUrl = '/api/v1'
 
 function authRequest (method, path, params, token) {
   token = token || store.getState().human?.token
-  console.log(store.getState())
   const req = request[method](`${rootUrl}${path}`).set('Authorization', `Bearer ${token}`)
 
   if (params) {

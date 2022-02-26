@@ -18,7 +18,7 @@ export async function cacheUser () {
       })
       const existingHuman = await getHuman(accessToken)
       if (existingHuman) {
-        const likes = await getLikes(existingHuman.id)
+        const likes = await getLikes(existingHuman.id, accessToken)
         store.dispatch(setHuman(existingHuman))
         store.dispatch(setLikes(likes))
       } else {

@@ -8,6 +8,7 @@ function CreateProfilePage () {
   const dispatch = useDispatch()
   const [form, setForm] = useState({})
   const human = useSelector(state => state.human)
+  console.log(human)
 
   useEffect(() => {
     setForm({

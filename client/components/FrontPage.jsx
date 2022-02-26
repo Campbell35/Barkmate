@@ -11,9 +11,10 @@ const Frontpage = () => {
   const [welp, setWelp] = useState(false)
   const owner = useSelector(state => state.human)
   const likes = useSelector(state => state.likes)
+  // console.log(owner)
 
   useEffect(() => {
-    getPets()
+    getPets(owner.token)
       .then(pets => {
         const arr = Array.from(Array(pets.length).keys())
         const shuffled = arr
@@ -25,7 +26,7 @@ const Frontpage = () => {
         return setPet(thePet)
       })
       .catch(err => setError(err.message))
-  }, [])
+  }, [owner.token])
 
   async function clickHandleLike () {
     await addLike(owner.id, Number(pet.owner_id))
@@ -37,11 +38,11 @@ const Frontpage = () => {
     setInd(ind + 1)
     const newPetInd = petArr[ind]
     if (ind < petArr.length) {
-      getPets()
+      getPets(owner.token)
         .then(pets => {
           return setPet(pets[newPetInd])
         })
-        .catch(err => setError(err.message))
+        .catch(err => setError(err.message) && console.log(error))
     } else {
       setWelp(true)
     }

@@ -1,18 +1,17 @@
 const express = require('express')
-const checkJWT = require('../auth0')
-const db = require('../db/pets')
+const db = require('../db/likes')
 
 const router = express.Router()
 
 module.exports = router
 
-// A route to direct you to the pets page after you sign in
-// GET /api/v1/pets
+// A route to direct you to the humnan page after you sign in
+// GET /api/v1/likes
 
 router.get('/', async (req, res) => {
   try {
-    const pets = await db.getPets()
-    res.json({ pets })
+    const likes = await db.getLikes()
+    res.json({ likes })
   } catch (err) {
     console.error(err)
     res.status(500).send(err.message)
@@ -21,10 +20,9 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   console.log(req.body)
-  const pet = req.body
   try {
-    const p = await db.addAPet(pet)
-    res.json({ pet: p })
+    const likes = await db.addALike(req.body)
+    res.json({ likes })
   } catch (err) {
     console.error(err)
     res.status(500).send(err.message)

@@ -1,59 +1,65 @@
-import React, { useState, useEffect } from 'react'
-import { useAuth0 } from '@auth0/auth0-react'
-
-const initialState = {
-  pets_name: '',
-  pets_breed: '',
-  pets_temprament: '',
-  pets_energy_levels: '',
-  pets_description: '',
-  pet_image_link: ''
-
-}
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { addPet } from '../../api'
 
 function ProfilePage () {
-  // set form state
-  const [form, setForm] = useState(initialState)
+  const owner = useSelector(state => state.human)
+  console.log(owner)
+  const [form, setForm] = useState({
+    name: '',
+    breed: '',
+    owner_id: owner.id,
+    energy_levels: 'Very Low',
+    images: '',
+    pats: 0,
+    treats: 0
+  })
 
   function handleFormChange (event) {
     setForm({
       ...form,
+      owner_id: owner.id,
       [event.target.name]: event.target.value
     })
   }
 
   async function handleSubmit (event) {
     event.preventDefault()
-    await addPet(form)
-    setForm(initialState)
-    history.push('/')
+    await addPet(form, owner.token)
+    history.push('/home')
+    console.log('pet added')
   }
 
   return (
     <>
-      <form className='form-wrapper'>
-        {/* pets_name  */}
-        <input type='text' name='pets_name' value={form.pets_name} onChange={handleFormChange} required/>
-        {/* pets_breed */}
-        <input type='text' name='pets_breed' value={form.pets_breed} onChange={handleFormChange} required/>
-        {/* pets_temprament */}
-        <input type='text' name='pets_temprament' value={form.pets_temprament} onChange={handleFormChange} required/>
-        {/* pets_energy_levels */}
-        <input type='radio' name='pets_energy_levels' value='1' onChange={handleFormChange}/>
-        <label htmlFor='1'>+</label>
-        <input type='radio' name='pets_energy_levels' value='2' onChange={handleFormChange}/>
-        <label htmlFor='2'>+</label>
-        <input type='radio' name='pets_energy_levels' value='3' onChange={handleFormChange}/>
-        <label htmlFor='3'>+</label>
-        <input type='radio' name='pets_energy_levels' value='4' onChange={handleFormChange}/>
-        <label htmlFor='4'>+</label>
-        <input type='radio' name='pets_energy_levels' value='5' onChange={handleFormChange}/>
-        <label htmlFor='5'>+</label>
-        {/* pets_description */}
-        <input type='text' name='pets_description' value={form.pets_description} onChange={handleFormChange} required/>
-        <button type='button' onClick={handleSubmit}>Submit</button>
-      </form>
+      <div className='form-div-pet'>
+        <form className='form-wrapper'>
+          {/* pets_name  */}
+          <p className='form-p'>Pet name:</p>
+          <input type='text' placeholder='Enter your dog&apos;s name' name='name' value={form.name} onChange={handleFormChange} required/>
+          {/* pets_breed */}
+          <p className='form-p'>Breed:</p>
+          <input type='text' placeholder='Enter your dog&apos;s breed' name='breed' value={form.breed} onChange={handleFormChange} required/>
+          {/* pets_energy_levels */}
+          <p className='form-p'>Energy Level:</p>
+          <select id="energy_levels" name="energy_levels" onChange={handleFormChange}>
+            <option value="Very Low">Very Low</option>
+            <option value="Low">Low</option>
+            <option value="Moderate">Moderate</option>
+            <option value="High">High</option>
+            <option value="Very High">Very High</option>
+          </select>
+          {/* pets_breed */}
+          <p className='form-p'>Image Link:</p>
+          <input type='text' placeholder='Link to your dog&apos;s picture' name='images' value={form.images} onChange={handleFormChange} required/>
+          {/* pets_description */}
+          <p className='form-p'>Description:</p>
+          <textarea type='text' className='description-text' placeholder='Describe your dog in a short paragraph!' name='description' value={form.description} required/>
 
+        </form>
+        <button className='btn' type='button' onClick={handleSubmit}>Submit</button>
+
+      </div>
     </>
   )
 }

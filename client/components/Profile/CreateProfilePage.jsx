@@ -1,16 +1,23 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-import { useAuth0 } from '@auth0/auth0-react'
-
-const initialState = {
-  humans_name: '',
-  post_code: ''
-}
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addHuman, addUserToChat } from '../../api'
+import { setHuman } from '../../actions/human'
 
 function CreateProfilePage () {
   // set form state
-  const [form, setForm] = useState(initialState)
-  const user = useSelector(state => state)
+  const dispatch = useDispatch()
+  const [form, setForm] = useState({})
+  const human = useSelector(state => state.human)
+  console.log(human)
+
+  useEffect(() => {
+    setForm({
+      auth0_id: human?.auth0Id,
+      email: human?.email,
+      token: human?.token,
+      name: ''
+    })
+  }, [human])
 
   function handleFormChange (event) {
     setForm({
@@ -21,31 +28,32 @@ function CreateProfilePage () {
 
   async function handleSubmit (event) {
     event.preventDefault()
+    dispatch(setHuman(form))
     await addHuman(form)
     await addUserToChat(form)
-    setForm(initialState)
-    history.push('/')
   }
 
   return (
-    <>
-      <form className='form-wrapper'>
-        {/* humans_name */}
-        <p>User Name:</p>
-        <input type='text' placeholder='choose your username' name='humans_name' value={form.humans_name} onChange={handleFormChange} required/>
-        <p>Post code:</p>
-        <input type='text' name='post_code' value={form.post_code} onChange={handleFormChange} required/>
-        <button type='button' onClick={handleSubmit}>Submit</button>
-        {/* humans_gender */}
-        {/* <input type='radio' name='humans_gender' value='female' onChange={handleFormChange}/>
+    <div className='full'>
+      <div className='form-div'>
+        <form className='form-wrapper'>
+          {/* humans_name */}
+          <p className='form-p'>Username:</p>
+          <input type='text' placeholder='Choose your Username' name='name' value={form.name} onChange={handleFormChange} required/>
+          <p className='form-p'>Post code:</p>
+          <input type='text' placeholder='Enter your post code' name='post_code' value={form.post_code} required/>
+          {/* humans_gender */}
+          {/* <input type='radio' name='humans_gender' value='female' onChange={handleFormChange}/>
         <label htmlFor='female'>Female</label>
         <input type='radio' name='humans_gender' value='male' onChange={handleFormChange}/>
         <label htmlFor='male'>Male</label>
         <input type='radio' name='humans_gender' value='non_binary' onChange={handleFormChange}/>
         <label htmlFor='non_binary'>Non-Binary</label> */}
-      </form>
+        </form>
+        <button type='button' className='coolBeans' onClick={handleSubmit}>Submit</button>
+      </div>
 
-    </>
+    </div>
   )
 }
 

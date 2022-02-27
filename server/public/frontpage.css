@@ -31,7 +31,7 @@
   color: rgb(155, 25, 25);
   position: absolute;
   left: 150px;
-  width: 200px;
+  max-width: 200px;
   height: 250px;
 }
 

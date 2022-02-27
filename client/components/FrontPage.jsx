@@ -25,38 +25,27 @@ const Frontpage = () => {
             <h2>Match ME</h2>
             <img className='pawheart' src='/images/pawheart.png'/>
           </div>
-
           <div className="clear"></div>
-
         </div>
         <div>
           <div className="leftSideCard">
             <button>
               <h3>SEND TREATS</h3>
-
             </button>
           </div>
         </div>
-
         <div className="rightSideCard">
           <button>
             <h3>SEND PATS</h3>
-
           </button>
         </div>
       </div>
-
       <div>
-
         <img className="rightArrow" src='/images/rightArrow.png'/>
-
       </div>
       <div>
-
         <img className="leftArrow" src='/images/leftArrow.png'/>
-
       </div>
-
     </>
   )
 }

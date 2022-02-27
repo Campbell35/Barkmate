@@ -15,7 +15,8 @@ const Frontpage = () => {
 
   useEffect(() => {
     getPets(owner.token)
-      .then(pets => {
+      .then(petsAll => {
+        const pets = petsAll.filter(pet => Number(pet.owner_id) !== owner.id)
         const arr = Array.from(Array(pets.length).keys())
         const shuffled = arr
           .map(value => ({ value, sort: Math.random() }))
@@ -39,7 +40,8 @@ const Frontpage = () => {
     const newPetInd = petArr[ind]
     if (ind < petArr.length) {
       getPets(owner.token)
-        .then(pets => {
+        .then(petsAll => {
+          const pets = petsAll.filter(pet => Number(pet.owner_id) !== owner.id)
           return setPet(pets[newPetInd])
         })
         .catch(err => setError(err.message) && console.log(error))

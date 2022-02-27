@@ -18,3 +18,15 @@ router.get('/', async (req, res) => {
     res.status(500).send(err.message)
   }
 })
+
+router.post('/', async (req, res) => {
+  console.log(req.body)
+  const pet = req.body
+  try {
+    const p = await db.addAPet(pet)
+    res.json({ pet: p })
+  } catch (err) {
+    console.error(err)
+    res.status(500).send(err.message)
+  }
+})

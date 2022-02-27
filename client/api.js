@@ -91,7 +91,7 @@ export function getLikes (id, token) {
     })
     .then(likes => {
       const myLikes = likes.filter(like => like.human_id === id)
-      console.log(myLikes)
+      // console.log(myLikes)
       return myLikes
     })
     .catch(logError)
@@ -106,6 +106,20 @@ export function addLike (likerId, likedId, token) {
     .set('authorization', `Bearer ${token}`)
     .send(entry)
     .then(res => res.body.likes)
+    .catch(logError)
+}
+
+export function getMatches (id, token) {
+  return request.get(`${rootUrl}/matches`)
+    .set('authorization', `Bearer ${token}`)
+    .then(res => {
+      return res.body.matches
+    })
+    .then(matches => {
+      const myMatches = matches.filter(match => match.human_one === id || match.human_two === id)
+      // console.log(myLikes)
+      return myMatches
+    })
     .catch(logError)
 }
 

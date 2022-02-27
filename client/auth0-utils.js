@@ -2,7 +2,8 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 import { setHuman } from './actions/human'
 import { setLikes } from './actions/likes'
-import { getHuman, getLikes } from './api'
+import { setMatches } from './actions/matches'
+import { getHuman, getLikes, getMatches } from './api'
 import store from './store'
 
 export async function cacheUser () {
@@ -19,8 +20,10 @@ export async function cacheUser () {
       const existingHuman = await getHuman(accessToken)
       if (existingHuman) {
         const likes = await getLikes(existingHuman.id, accessToken)
+        const matches = await getMatches(existingHuman.id, accessToken)
         store.dispatch(setHuman(existingHuman))
         store.dispatch(setLikes(likes))
+        store.dispatch(setMatches(matches))
       } else {
         const userToSave = {
           auth0Id: user.sub,

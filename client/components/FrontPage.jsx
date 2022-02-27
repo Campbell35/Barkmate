@@ -29,7 +29,7 @@ const Frontpage = () => {
   }, [owner.token])
 
   async function clickHandleLike () {
-    await addLike(owner.id, Number(pet.owner_id))
+    await addLike(owner.id, Number(pet.owner_id), owner.token)
     setLiked(true)
   }
 

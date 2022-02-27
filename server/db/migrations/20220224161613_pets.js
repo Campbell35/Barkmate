@@ -4,7 +4,7 @@ exports.up = (knex) => {
     table.string('name')
     table.string('breed')
     table.string('owner_id').references('users.auth0_id')
-    table.integer('energy_levels')
+    table.string('energy_levels')
     table.string('images')
     table.integer('pats')
     table.integer('treats')

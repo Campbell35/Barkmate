@@ -1,5 +1,5 @@
 const express = require('express')
-const db = require('../db/matches')
+const db = require('../db/likes')
 
 const router = express.Router()
 
@@ -10,7 +10,7 @@ module.exports = router
 
 router.get('/', async (req, res) => {
   try {
-    const matches = await db.getMatches()
+    const matches = await db.getCommonLikes()
     res.json({ matches })
   } catch (err) {
     console.error(err)

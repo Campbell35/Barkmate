@@ -109,16 +109,10 @@ export function addLike (likerId, likedId, token) {
     .catch(logError)
 }
 
-export function getMatches (id, token) {
-  return request.get(`${rootUrl}/matches`)
-    .set('authorization', `Bearer ${token}`)
+export function getMatches () {
+  return authRequest('get', '/matches')
     .then(res => {
       return res.body.matches
-    })
-    .then(matches => {
-      const myMatches = matches.filter(match => match.human_one === id || match.human_two === id)
-      // console.log(myLikes)
-      return myMatches
     })
     .catch(logError)
 }

@@ -9,3 +9,6 @@ exports.up = (knex) => {
 exports.down = (knex) => {
   return knex.schema.dropTable('matches')
 }
+
+// this table can now be dropped
+

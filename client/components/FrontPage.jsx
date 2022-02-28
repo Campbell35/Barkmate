@@ -54,22 +54,19 @@ const Frontpage = () => {
       <>
         <div className="dog-card-container">
           <div className="dog-card">
-            <h1>BARKMATES</h1>
-            <img className="dog-card-nav" src='/images/nav-icon.png'/>
+            <div className="container21">
+              <h1>BARKMATES</h1>
+              <img className="dog-card-nav" src='/images/nav-icon.png'/>
+            </div>
             <img className="dog-card-img" src={pet.images}/>
-            {/* <b>//Name :// </b> */}
+
             <h3> {pet.name} </h3>
 
-            {/* <b>Breed : </b> */}
-            <p> {pet.breed} </p>
+            <p> Breed: {pet.breed}   &emsp; &emsp; &emsp; &emsp; &emsp;  Energy Level: {pet.energy_levels} </p>
 
-            {/* <b>Energy Levels: </b> */}
-            {/* <p> Energy Level: pet.energy_levels} </p> */}
+            <p> {pet.name} :"Hey babes! I am  a little lover boy! Come to bark with me! Woof! Woof! xoxo" </p>
 
-            {/* <b>Description: </b> */}
-            {/* <p> Little lover boy!!</p> */}
-
-            <p> VIEW PROFILE </p>
+            {/* <p> VIEW PROFILE </p> */}
 
             <div className="clear"></div>
 
@@ -83,7 +80,7 @@ const Frontpage = () => {
                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"></path>
                   </svg>
                 </div>
-                <p>SEND PAT</p>
+                <p className="hugs">Send Pat</p>
               </button>
             </div>
             <div>
@@ -94,7 +91,11 @@ const Frontpage = () => {
                 : likes.find(like => {
                   return like.liked_human_id === Number(pet.owner_id)
                 }) || liked
-                  ? <h1>liked!</h1>
+                  ? <div className="container123">
+                    <img className='pawheart2' src='/images/heart.png'></img>
+                    <div className="centered123"><h3>Liked</h3></div>
+                  </div>
+
                   : <img className='pawheart2' src='/images/pawheart.png' onClick={clickHandleLike}/>
               }
 

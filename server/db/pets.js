@@ -4,6 +4,11 @@ function getPets (db = connection) {
   return db('pets').select()
 }
 
+function getPetsByOwner (id, db = connection) {
+  return db('pets').select()
+    .where('owner_id', id)
+}
+
 function addAPet (pet, db = connection) {
   return db('pets')
     .insert(pet)
@@ -20,5 +25,6 @@ function getRandomPet (humanId, db = connection) {
 
 module.exports = {
   getPets,
-  addAPet
+  addAPet,
+  getPetsByOwner
 }

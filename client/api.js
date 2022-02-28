@@ -4,6 +4,16 @@ import store from './store'
 
 const rootUrl = '/api/v1'
 
+export function getPetsByOwner (ownerId, token) {
+  return request.get(`${rootUrl}/pets/ownerId`)
+    .set('authorization', `Bearer ${token}`)
+    .query({ query: ownerId })
+    .then(res => {
+      return res.body
+    })
+    .catch(logError)
+}
+
 function authRequest (method, path, params, token) {
   token = token || store.getState().human?.token
   const req = request[method](`${rootUrl}${path}`).set('Authorization', `Bearer ${token}`)

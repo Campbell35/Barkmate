@@ -11,20 +11,57 @@
   border: none;
   border-radius: 0.4rem;
   box-sizing: border-box;
-  background-color: #592e19;
-  color: white;
+  background-color: white;
+  color: black;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .form-div {
   padding: 10px;
-  background-color: rgb(33, 187, 82);
+  background-color: #2ca0d9;
   border-radius: 5%;
-  width: 15rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+button {
+  background: linear-gradient(-45deg, #3f00b5, #9f69fe, #27c8b7, #3f00b5);
+  background-size: 800% 400%;
+  padding: 1em 2em;
+  display: inline-block;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+  transition: all 0.5s ease-in-out;
+  animation: gradient 10s infinite cubic-bezier(0.62, 0.28, 0.23, 0.99) both;
+}
+
+button:hover {
+  animation: gradient 3s infinite;
+  transform: scale(1.05);
+}
+
+button:active {
+  animation: gradient 3s infinite;
+  transform: scale(0.8);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .form-div-pet {
@@ -40,7 +77,7 @@
 }
 
 body {
-  background-color: rgb(98, 237, 142);
+  background-color: #ccfbfe;
 }
 
 .btn {
@@ -71,7 +108,7 @@ body {
 
 .form-p {
   font-weight: bold;
-  color: #592e19;
+  color: black;
   margin-left: 1.5rem;
   margin-bottom: 1.5rem;
 }
@@ -107,7 +144,7 @@ body {
   border-radius: 15px;
   padding: 15px;
   background-color: white;
-  font-family: "Bazoo Tow NF W01 Regular";
+  font-family: "Balsamiq Sans", cursive;
   color: black;
 }
 
@@ -125,7 +162,7 @@ body {
 }
 
 .button .leftSideCard {
-  font-family: "Bazoo Tow NF W01 Regular";
+  font-family: "Balsamiq Sans", cursive;
   color: rgb(155, 25, 25);
   position: absolute;
   left: 150px;
@@ -134,7 +171,7 @@ body {
 }
 
 .button .rightSideCard {
-  font-family: "Bazoo Tow NF W01 Regular";
+  font-family: "Balsamiq Sans", cursive;
   color: rgb(155, 25, 25);
   position: absolute;
 
@@ -163,7 +200,7 @@ body {
 /* kateh */
 
 .container21 {
-  color: purple;
+  color: #2ca0d9;
   display: flex;
   justify-content: space-between;
 }
@@ -288,8 +325,34 @@ body {
   border-radius: 0.5em;
 }
 
+.hugs {
+  padding-top: 0.8em;
+}
+
 /* like button */
 .pawheart2 {
   width: 100px;
   height: auto;
+}
+
+/* liked and heart */
+.container123 {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered123 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* hange the page layout for mobile portrait (320px) */
+
+@media only screen and (max-width: 320px) {
+  .dog-card-container {
+    background-color: #ccfbfe;
+  }
 }

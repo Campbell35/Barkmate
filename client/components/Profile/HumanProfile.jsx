@@ -19,7 +19,9 @@ function HumanProfile () {
       return (
         petArr.map(pet => (<>
 
-          <li><img src={pet.images}></img></li>
+          <div className ="petImageYo">
+            <li><img src={pet.images}></img></li>
+          </div>
           <li>NAME:{pet.name}</li>
           <li>ENERGY LEVELS:{pet.energy_levels}</li>
           <li>PATS:{pet.pats}</li>

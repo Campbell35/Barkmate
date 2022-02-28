@@ -24,7 +24,7 @@ function Nav () {
   function handleRegister (e) {
     e.preventDefault()
     loginWithRedirect({
-      redirectUri: `${window.location.origin}/profile`
+      redirectUri: `${window.location.origin}/profile/create`
     })
   }
 

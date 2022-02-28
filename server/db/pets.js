@@ -25,5 +25,6 @@ function getRandomPet (humanId, db = connection) {
 
 module.exports = {
   getPets,
-  addAPet
+  addAPet,
+  getPetsByOwner
 }

@@ -9,9 +9,23 @@ function getPetsByOwner (id, db = connection) {
     .where('owner_id', id)
 }
 
+function getPetsByID (id, db = connection) {
+  return db('pets').select()
+    .where('id', id)
+}
+
 function addAPet (pet, db = connection) {
   return db('pets')
     .insert(pet)
+    .then(() => null)
+}
+
+async function addAPat (id, db = connection) {
+  const petToUpdate = await getPetsByID(id)
+  const newPats = petToUpdate[0].pats + 1
+  return db('pets')
+    .where('id', id)
+    .update({ pats: newPats })
     .then(() => null)
 }
 
@@ -26,5 +40,6 @@ function getRandomPet (humanId, db = connection) {
 module.exports = {
   getPets,
   addAPet,
-  getPetsByOwner
+  getPetsByOwner,
+  addAPat
 }

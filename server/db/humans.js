@@ -19,8 +19,24 @@ function addAHuman (human, db = connection) {
     .then(() => null)
 }
 
+function getPatsLeft (id, db = connection) {
+  return db('humans')
+    .select('pats')
+    .where('id', id)
+}
+
+async function updatePat (id, pats, db = connection) {
+  console.log(pats)
+  return db('humans')
+    .where('id', id)
+    .update({ pats: pats - 1 })
+    .then(() => null)
+}
+
 module.exports = {
   getHuman,
   addAHuman,
-  getHumans
+  getHumans,
+  getPatsLeft,
+  updatePat
 }

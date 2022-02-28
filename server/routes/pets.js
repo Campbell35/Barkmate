@@ -21,7 +21,6 @@ router.get('/', async (req, res) => {
 
 router.get('/ownerId', async (req, res) => {
   try {
-    console.log(Number(req.query.query))
     const petsByOwner = await db.getPetsByOwner(Number(req.query.query))
     res.json({ petsByOwner })
   } catch (err) {
@@ -31,10 +30,20 @@ router.get('/ownerId', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-  console.log(req.body)
   const pet = req.body
   try {
     const p = await db.addAPet(pet)
+    res.json({ pet: p })
+  } catch (err) {
+    console.error(err)
+    res.status(500).send(err.message)
+  }
+})
+
+router.post('/pat', async (req, res) => {
+  const id = Number(req.query.query)
+  try {
+    const p = await db.addAPat(id)
     res.json({ pet: p })
   } catch (err) {
     console.error(err)

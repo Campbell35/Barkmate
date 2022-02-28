@@ -14,6 +14,34 @@ export function getPetsByOwner (ownerId, token) {
     .catch(logError)
 }
 
+export function getPatsByID (id, token) {
+  return request.get(`${rootUrl}/human/pat`)
+    .set('authorization', `Bearer ${token}`)
+    .query({ query: id })
+    .then(res => {
+      return res.body
+    })
+    .catch(logError)
+}
+
+export function sendPat (id, token) {
+  return request.post(`${rootUrl}/pets/pat`)
+    .set('authorization', `Bearer ${token}`)
+    .query({ query: id })
+    .send(id)
+    .then(res => res.body.pets)
+    .catch(logError)
+}
+
+export function updateOwnerPats (id, pats, token) {
+  return request.post(`${rootUrl}/human/pat`)
+    .set('authorization', `Bearer ${token}`)
+    .query({ query: id, pats: pats })
+    .send(id)
+    .then(res => res.body.pets)
+    .catch(logError)
+}
+
 function authRequest (method, path, params, token) {
   token = token || store.getState().human?.token
   const req = request[method](`${rootUrl}${path}`).set('Authorization', `Bearer ${token}`)

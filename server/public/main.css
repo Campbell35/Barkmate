@@ -373,6 +373,7 @@ body {
   font-family: "Balsamiq Sans", cursive;
   font-size: large;
   color: black;
+  margin-bottom: 10px;
 }
 
 @font-face {
@@ -387,12 +388,15 @@ body {
   border-bottom-right-radius: 50px;
   border-bottom-left-radius: 100px;
   font-family: Bazoo Tow NF W01 Regular;
-  font-size:x-large;
-  text-align: right;
+  font-size: 35pt;
+  text-align: center;
 }
 
 .owner-pet-image {
   width: 30vw;
   height: 30vw;
   object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }

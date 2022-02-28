@@ -27,16 +27,18 @@ function HumanProfile () {
 
                 <ul className="nobull">
                   <div className ="owner-pet-border">
-                    <li>{pet.name}
+                    <li>
                       <img className ="owner-pet-image" src={pet.images}>
 
                       </img>
+                      {pet.name}
                     </li>
                   </div>
                   <br></br>
                   <li>ENERGY LEVELS: {pet.energy_levels}</li>
                   <br></br>
                   <li>DESCRIPTION: What A Pet!</li>
+                  {/* /// javascript to be added for description to show user's input /// */}
                   <br></br>
                   <li>PATS: {pet.pats}</li>
                   <br></br>

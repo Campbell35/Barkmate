@@ -357,7 +357,42 @@ body {
   }
 }
 
-.petImageYo {
-  max-width: 26px;
-  max-height: 26px;
+
+
+.nobull {
+  list-style-type: none;
+ }
+
+ .owner-pet-container {
+  width: 50vw;
+  margin: 0 auto;
+  box-shadow: 3px 3px 5px 6px #ccc;
+  border-radius: 15px;
+  padding: 15px;
+  background-color: white;
+  font-family: "Balsamiq Sans", cursive;
+  font-size: large;
+  color: black;
+}
+
+@font-face {
+  font-family: Bazoo Tow NF W01 Regular;
+  src: url(Bazoo\ Tow\ NF\ W01\ Regular.ttf);
+}
+
+.owner-pet-border {
+  border: 2px solid #006100;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 100px;
+  font-family: Bazoo Tow NF W01 Regular;
+  font-size:x-large;
+  text-align: right;
+}
+
+.owner-pet-image {
+  width: 30vw;
+  height: 30vw;
+  object-fit: contain;
 }

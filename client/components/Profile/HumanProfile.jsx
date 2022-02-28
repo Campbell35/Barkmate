@@ -17,17 +17,35 @@ function HumanProfile () {
   if (owner.token) {
     if (petArr !== []) {
       return (
-        petArr.map(pet => (<>
+        petArr.map(pet => (
+          <>
+            <div className="owner-pet-container">
+              <div className="dog-card">
+                <div className="container21">
+                  <img className="dog-card-nav" src='/images/nav-icon.png'/>
+                </div>
 
-          <div className ="petImageYo">
-            <li><img src={pet.images}></img></li>
-          </div>
-          <li>NAME:{pet.name}</li>
-          <li>ENERGY LEVELS:{pet.energy_levels}</li>
-          <li>PATS:{pet.pats}</li>
-          <li><p>TREATS:</p>{pet.treats}</li>
+                <ul className="nobull">
+                  <div className ="owner-pet-border">
+                    <li>{pet.name}
+                      <img className ="owner-pet-image" src={pet.images}>
 
-        </>
+                      </img>
+                    </li>
+                  </div>
+                  <br></br>
+                  <li>ENERGY LEVELS: {pet.energy_levels}</li>
+                  <br></br>
+                  <li>DESCRIPTION: What A Pet!</li>
+                  <br></br>
+                  <li>PATS: {pet.pats}</li>
+                  <br></br>
+                  <li>TREATS: {pet.treats}</li>
+                </ul>
+              </div>
+            </div>
+
+          </>
         )))
     } else {
       return (<div> LOADING ... </div>)

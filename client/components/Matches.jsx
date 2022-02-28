@@ -7,7 +7,7 @@ function Matches () {
 
   useEffect(() => {
     // dispatch getMatches
-    dispatchEvent(getMatches())
+    dispatch(getMatches())
   }, [])
 
   return (

@@ -8,19 +8,17 @@ function getLikes (db = connection) {
 function addALike (like, db = connection) {
   return db('likes')
     .insert(like)
-    // Below would no longer be needed as matches are found in real time
-
-    // .then(() => getLikes())
-    // .then((allLikes) => {
-    //   const match = allLikes.find(element => element.human_id === like.liked_human_id && element.liked_human_id === like.human_id)
-    //   if (match) {
-    //     const newMatch = {
-    //       human_one: like.human_id,
-    //       human_two: like.liked_human_id
-    //     }
-    //     return matchFunc.addAMatch(newMatch)
-    //   } else { return null }
-    // })
+    .then(() => getLikes())
+    .then((allLikes) => {
+      const match = allLikes.find(element => element.human_id === like.liked_human_id && element.liked_human_id === like.human_id)
+      if (match) {
+        const newMatch = {
+          human_one: like.human_id,
+          human_two: like.liked_human_id
+        }
+        return matchFunc.addAMatch(newMatch)
+      } else { return null }
+    })
 }
 
 function getCommonLikes(id, db = connection) { // gets the matches based on like table
@@ -48,5 +46,5 @@ function getCommonLikes(id, db = connection) { // gets the matches based on like
 module.exports = {
   getLikes,
   addALike,
-  getCommonLikes,
+  getCommonLikes
 }

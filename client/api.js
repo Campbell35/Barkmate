@@ -124,15 +124,17 @@ export function getMatches (id, token) {
 }
 
 export function addUserToChat (user, token) {
-  return request.post('/chat/api')
-    .set('authorization', `Bearer ${token}`)
-    .send({
-      ...user,
-      username: 'adam_la_morre',
-      first_name: 'Adam',
-      last_name: 'La Morre',
-      secret: 'pass1234'
-    })
+  const chatUser = {
+    username: user.name,
+    secret: user.token,
+    email: user.email,
+    first_name: 'El',
+    last_name: 'Dorra'
+  }
+  console.log(chatUser)
+  return request.post('/chatapi')
+  // .set('authorization', `Bearer ${token}`)
+    .send(chatUser)
     .then(res => res.body.user)
     .catch(logError)
 }

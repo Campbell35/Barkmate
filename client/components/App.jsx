@@ -8,7 +8,6 @@ import FrontPage from './FrontPage'
 import Fruits from './Fruits'
 import Chat from './Chat'
 import HumanProfile from './Profile/HumanProfile'
-import Nav from './Nav'
 
 function App () {
   cacheUser()
@@ -16,7 +15,7 @@ function App () {
     <>
       <Router>
         <Route path='/home' component={FrontPage} />
-        <Route path='/' component={Nav} />
+        {/* <Route path='/' component={Nav} /> */}
         <Route path='/chat' component={Chat} />
         <Route exact path='/fruits' component={Fruits} />
         <Route exact path='/profile/create' component={ProfilePage} />
@@ -24,7 +23,6 @@ function App () {
         <Route exact path='/petprofile' component={PetProfile} />
         <Route exact path='/profile' component={HumanProfile} />
 
-        <Route exact path='/profile' component={ProfilePage} />
       </Router>
     </>
   )

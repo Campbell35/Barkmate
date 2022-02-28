@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { getPets, addLike } from '../api'
 import { useSelector } from 'react-redux'
-import Navigation from './Navigation'
+import Navigation from './Navigation/Navigation'
 
 const Frontpage = () => {
   const [error, setError] = useState('')
@@ -58,7 +58,7 @@ const Frontpage = () => {
 
           <div className="dog-card">
             <h1>BARKMATES</h1>
-            <Navigation/>
+            {/* <Navigation/> */}
             <img className="dog-card-nav" />
             <img className="dog-card-img" src={pet.images}/>
 

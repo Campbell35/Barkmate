@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { getPets, addLike, getHumansByID, getPatsByID, sendPat, updateOwnerPats } from '../api'
 import { useSelector, useDispatch } from 'react-redux'
 import { setHuman } from '../actions/human'
+import Navigation from './Navigation/Navigation'
 
 const Frontpage = () => {
   const [error, setError] = useState('')
@@ -90,18 +91,18 @@ const Frontpage = () => {
     return (
       <>
         <div className="dog-card-container">
+
           <div className="dog-card">
-            <div className="container21">
-              <h1>BARKMATES</h1>
-              <img className="dog-card-nav" src='/images/nav-icon.png'/>
-            </div>
+            <h1>BARKMATES</h1>
+            {/* <Navigation/> */}
+            <img className="dog-card-nav" />
             <img className="dog-card-img" src={pet.images}/>
 
             <h3> {pet.name} </h3>
 
             <p> Breed: {pet.breed}   &emsp; &emsp; &emsp; &emsp; &emsp;  Energy Level: {pet.energy_levels} </p>
 
-            <p> {pet.name} :"Hey babes! I am  a little lover boy! Come to bark with me! Woof! Woof! xoxo" </p>
+            <p> {pet.name}:"Hey babes! I am  a little lover boy! Come to bark with me! Woof! Woof! xoxo" </p>
 
             {/* <p> VIEW PROFILE </p> */}
 

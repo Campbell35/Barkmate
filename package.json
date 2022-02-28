@@ -46,6 +46,8 @@
     "jwks-rsa": "^2.0.4",
     "knex": "^0.21.21",
     "process": "^0.11.10",
+    "react-bootstrap": "^2.1.2",
+    "react-burger-menu": "^3.0.6",
     "react-chat-engine": "^1.11.22",
     "react-redux": "^7.2.5",
     "redux": "^4.1.1",

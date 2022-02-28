@@ -8,8 +8,9 @@ function getHuman (id, db = connection) {
     .first()
 }
 
-function getHumans (db = connection) {
+function getHumans (ids, db = connection) {
   return db('humans').select()
+    .whereIn('id', ids)
 }
 
 function addAHuman (human, db = connection) {

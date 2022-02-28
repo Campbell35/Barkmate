@@ -96,17 +96,10 @@ export function getHuman (token) {
 export function getHumansByID (ids, token) {
   return request.get(`${rootUrl}/human/chat`)
     .set('authorization', `Bearer ${token}`)
+    .query({ query: ids })
     .then(res => {
-      console.log(res)
       return res.body.humans
     })
-    .then(humans => humans.filter(human => {
-      for (let i = 0; i < ids.length; i++) {
-        if (human.id === ids[i]) {
-          return human
-        } else { return null }
-      }
-    }))
 }
 
 export function getLikes (id, token) {

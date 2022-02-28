@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
 
 router.get('/chat', async (req, res) => {
   try {
-    const humans = await db.getHumans()
+    const humans = await db.getHumans(req.query.query)
     res.json({ humans })
   } catch (err) {
     console.error(err)

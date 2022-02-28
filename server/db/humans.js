@@ -8,6 +8,10 @@ function getHuman (id, db = connection) {
     .first()
 }
 
+function getHumans (db = connection) {
+  return db('humans').select()
+}
+
 function addAHuman (human, db = connection) {
   return db('humans')
     .insert(human)
@@ -16,5 +20,6 @@ function addAHuman (human, db = connection) {
 
 module.exports = {
   getHuman,
-  addAHuman
+  addAHuman,
+  getHumans
 }

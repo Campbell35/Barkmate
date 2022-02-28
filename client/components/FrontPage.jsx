@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getPets, addLike } from '../api'
+import { getPets, addLike, getHumansByID } from '../api'
 import { useSelector } from 'react-redux'
 
 const Frontpage = () => {
@@ -32,6 +32,9 @@ const Frontpage = () => {
   async function clickHandleLike () {
     await addLike(owner.id, Number(pet.owner_id), owner.token)
     setLiked(true)
+    getHumansByID(21, owner.token)
+      .then(res => console.log(res))
+      .catch(err => console.log(err.message))
   }
 
   function clickHandleRight () {

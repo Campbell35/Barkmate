@@ -25,7 +25,7 @@ server.use('/api/v1/pets', petsRoutes)
 server.use('/api/v1/human', humanRoutes)
 server.use('/api/v1/matches', matchesRoutes)
 server.use('/api/v1/likes', likesRoutes)
-server.post('/chat/api', (req, res) => {
+server.post('/chatapi', (req, res) => {
   request
     .post('https://api.chatengine.io/users/')
     .set('PRIVATE-KEY', '46d540be-94a3-4271-b500-2894565d5fce')

@@ -20,6 +20,16 @@ router.get('/', async (req, res) => {
   }
 })
 
+router.get('/chat', async (req, res) => {
+  try {
+    const humans = await db.getHumans()
+    res.json({ humans })
+  } catch (err) {
+    console.error(err)
+    res.status(500).send(err.message)
+  }
+})
+
 router.post('/', async (req, res) => {
   console.log(req.body)
   const human = req.body

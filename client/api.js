@@ -4,6 +4,16 @@ import store from './store'
 
 const rootUrl = '/api/v1'
 
+export function getPetsByOwner (ownerId, token) {
+  return request.get(`${rootUrl}/pets/ownerId`)
+    .set('authorization', `Bearer ${token}`)
+    .query({ query: ownerId })
+    .then(res => {
+      return res.body
+    })
+    .catch(logError)
+}
+
 function authRequest (method, path, params, token) {
   token = token || store.getState().human?.token
   const req = request[method](`${rootUrl}${path}`).set('Authorization', `Bearer ${token}`)
@@ -83,6 +93,22 @@ export function getHuman (token) {
     .catch(logError)
 }
 
+export function getHumansByID (ids, token) {
+  return request.get(`${rootUrl}/human/chat`)
+    .set('authorization', `Bearer ${token}`)
+    .then(res => {
+      console.log(res)
+      return res.body.humans
+    })
+    .then(humans => humans.filter(human => {
+      for (let i = 0; i < ids.length; i++) {
+        if (human.id === ids[i]) {
+          return human
+        } else { return null }
+      }
+    }))
+}
+
 export function getLikes (id, token) {
   return request.get(`${rootUrl}/likes`)
     .set('authorization', `Bearer ${token}`)
@@ -91,7 +117,7 @@ export function getLikes (id, token) {
     })
     .then(likes => {
       const myLikes = likes.filter(like => like.human_id === id)
-      console.log(myLikes)
+      // console.log(myLikes)
       return myLikes
     })
     .catch(logError)
@@ -109,16 +135,32 @@ export function addLike (likerId, likedId, token) {
     .catch(logError)
 }
 
-export function addUserToChat (user, token) {
-  return request.post('/chat/api')
+export function getMatches (id, token) {
+  return request.get(`${rootUrl}/matches`)
     .set('authorization', `Bearer ${token}`)
-    .send({
-      ...user,
-      username: 'adam_la_morre',
-      first_name: 'Adam',
-      last_name: 'La Morre',
-      secret: 'pass1234'
+    .then(res => {
+      return res.body.matches
     })
+    .then(matches => {
+      const myMatches = matches.filter(match => match.human_one === id || match.human_two === id)
+      // console.log(myLikes)
+      return myMatches
+    })
+    .catch(logError)
+}
+
+export function addUserToChat (user, token) {
+  const chatUser = {
+    username: user.name,
+    secret: user.token,
+    email: user.email,
+    first_name: 'El',
+    last_name: 'Dorra'
+  }
+  console.log(chatUser)
+  return request.post('/chatapi')
+  // .set('authorization', `Bearer ${token}`)
+    .send(chatUser)
     .then(res => res.body.user)
     .catch(logError)
 }

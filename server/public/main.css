@@ -1,166 +1,358 @@
-.form-wrapper input[type=text], .form-wrapper select {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 20rem;
-    padding: 1rem;
-    margin: 0.5rem 0 0.5rem 0;
-    display: inline-block;
-    border: none;
-    border-radius: 0.4rem;
-    box-sizing: border-box;
-    background-color: #592e19;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.form-wrapper input[type="text"],
+.form-wrapper select {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20rem;
+  padding: 1rem;
+  margin: 0.5rem 0 0.5rem 0;
+  display: inline-block;
+  border: none;
+  border-radius: 0.4rem;
+  box-sizing: border-box;
+  background-color: white;
+  color: black;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .form-div {
-    padding: 10px;
-    background-color: rgb(33, 187, 82);
-    border-radius: 5%;
-    width: 15rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+  padding: 10px;
+  background-color: #2ca0d9;
+  border-radius: 5%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+button {
+  background: linear-gradient(-45deg, #3f00b5, #9f69fe, #27c8b7, #3f00b5);
+  background-size: 800% 400%;
+  padding: 1em 2em;
+  display: inline-block;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+  transition: all 0.5s ease-in-out;
+  animation: gradient 10s infinite cubic-bezier(0.62, 0.28, 0.23, 0.99) both;
+}
+
+button:hover {
+  animation: gradient 3s infinite;
+  transform: scale(1.05);
+}
+
+button:active {
+  animation: gradient 3s infinite;
+  transform: scale(0.8);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .form-div-pet {
-    padding: 20px;
-    background-color: rgb(33, 187, 82);
-    border-radius: 5%;
-    width: 30rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    margin-top:50px;
+  padding: 20px;
+  background-color: rgb(33, 187, 82);
+  border-radius: 5%;
+  width: 30rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 50px;
 }
 
 body {
-    background-color: rgb(98, 237, 142);
+  background-color: #ccfbfe;
 }
 
 .btn {
-    color: #c9bcbc;
-    padding: 15px;
-    background-color: #592e19;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 14px;
-    border-radius: 8px;
-    border: 0;
-    transition: all 0.4s;
-    margin: 8px 8px 8px 0;
-    text-align: center;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    margin-top: 2rem;
+  color: #c9bcbc;
+  padding: 15px;
+  background-color: #592e19;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 0;
+  transition: all 0.4s;
+  margin: 8px 8px 8px 0;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 2rem;
 }
 
 .btn:hover {
-    font-weight: 700;
-    color: white !important;
-    outline-color: white;
-    padding: 19px;
+  font-weight: 700;
+  color: white !important;
+  outline-color: white;
+  padding: 19px;
 }
 
 .form-p {
-    font-weight: bold;
-    color: #592e19;
-    margin-left: 1.5rem;
-    margin-bottom: 1.5rem;
+  font-weight: bold;
+  color: black;
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .description-text {
-    height: 5rem;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 20rem;
-    height: 10rem;
-    padding: 1rem;
-    margin: 3.5rem 0 0.5rem 0;
-    display: inline-block;
-    border: none;
-    border-radius: 0.4rem;
-    box-sizing: border-box;
-    background-color: #592e19;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 5rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20rem;
+  height: 10rem;
+  padding: 1rem;
+  margin: 3.5rem 0 0.5rem 0;
+  display: inline-block;
+  border: none;
+  border-radius: 0.4rem;
+  box-sizing: border-box;
+  background-color: #592e19;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 @font-face {
-    font-family: Bazoo Tow NF W01 Regular;
-    src: url(Bazoo\ Tow\ NF\ W01\ Regular.ttf);
-  }
-  
+  font-family: Bazoo Tow NF W01 Regular;
+  src: url(Bazoo\ Tow\ NF\ W01\ Regular.ttf);
+}
+
+.dog-card-container {
+  width: 50vw;
+  margin: 0 auto;
+  box-shadow: 3px 3px 5px 6px #ccc;
+  border-radius: 15px;
+  padding: 15px;
+  background-color: white;
+  font-family: "Balsamiq Sans", cursive;
+  color: black;
+}
+
+.dog-card-img {
+  border-radius: 15px;
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+}
+
+.dog-card-nav {
+  position: sticky;
+  top: 8px;
+  right: 16px;
+}
+
+.button .leftSideCard {
+  font-family: "Balsamiq Sans", cursive;
+  color: rgb(155, 25, 25);
+  position: absolute;
+  left: 150px;
+  width: 200px;
+  height: 250px;
+}
+
+.button .rightSideCard {
+  font-family: "Balsamiq Sans", cursive;
+  color: rgb(155, 25, 25);
+  position: absolute;
+
+  right: 150px;
+  width: 200px;
+  height: 250px;
+}
+
+.leftArrow {
+  left: 150px;
+  width: 75px;
+  height: 60px;
+}
+
+.rightArrow {
+  right: 150px;
+  width: 75px;
+  height: 60px;
+}
+.pawheart {
+  text-align: center;
+  max-height: 10%;
+  max-width: 10%;
+}
+
+/* kateh */
+
+.container21 {
+  color: #2ca0d9;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button2:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.button2 {
+  user-select: none;
+  transition: all 200ms;
+  cursor: pointer;
+}
+
+.button2:active {
+  transform: scale(0.9);
+  transition: all 200ms;
+}
+
+/* next button */
+.cssbuttons-io-button {
+  background: #2ca0d9;
+  color: white;
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em #714da6;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3.3em;
+}
+
+.cssbuttons-io-button .icon {
+  background: white;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: #7b52b9;
+}
+
+.cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+  transform: scale(0.95);
+}
+
+/* Send pat */
+.button21 {
+  background: #2ca0d9;
+  color: white;
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em #714da6;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3.3em;
+}
+
+.button21 .icon21 {
+  background: white;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.icon21 svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: #7b52b9;
+}
+
+.button21:hover .icon21 svg {
+  transform: rotate(360deg);
+}
+
+.button21:hover .icon21 {
+  width: calc(100% - 0.85rem);
+  border-radius: 0.5em;
+}
+
+.hugs {
+  padding-top: 0.8em;
+}
+
+/* like button */
+.pawheart2 {
+  width: 100px;
+  height: auto;
+}
+
+/* liked and heart */
+.container123 {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered123 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* hange the page layout for mobile portrait (320px) */
+
+@media only screen and (max-width: 320px) {
   .dog-card-container {
-    width: 40vw;
-    margin: 0 auto;
-    box-shadow: 3px 3px 5px 6px #ccc;
-    border-radius: 15px;
-    padding: 15px;
-    background-color: rgb(155, 25, 25);
-    font-family: "Bazoo Tow NF W01 Regular";
-    color: wheat;
+    background-color: #ccfbfe;
   }
-  
-  .dog-card-img {
-    border-radius: 15px;
-    width: 100%; 
-    height: 400px; 
-    object-fit: cover
-  }
-  
-  .dog-card-nav {
-    position: absolute;
-    top: 8px;
-    right: 16px;
-  }
-  
-  .button .leftSideCard {
-    font-family: "Bazoo Tow NF W01 Regular";
-    color: rgb(155, 25, 25);
-    position: absolute;
-    left: 150px;
-    width: 200px;
-    height: 250px;
-  }
-  
-  .button .rightSideCard {
-    font-family: "Bazoo Tow NF W01 Regular";
-    color: rgb(155, 25, 25);
-    position: absolute;
-  
-    right: 150px;
-    width: 200px;
-    height: 250px;
-  }
-  
-  .leftArrow {
-    position: absolute;
-    left: 150px;
-    width: 150px;
-    height: 120px;
-    max-height: 20%;
-    max-width: 20%;
-  }
-  
-  .rightArrow {
-    position: absolute;
-    right: 150px;
-    width: 150px;
-    height: 120px;
-    max-height: 20%;
-    max-width: 20%;
-  }
-  .pawheart {
-    text-align: center;
-    max-height: 10%;
-    max-width: 10%;
-  }
+}

@@ -1,31 +1,33 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { addPet } from '../../api'
 
 function ProfilePage () {
-  const dispatch = useDispatch()
-  // set form state
+  const owner = useSelector(state => state.human)
+  console.log(owner)
   const [form, setForm] = useState({
-    pets_name: '',
-    pets_breed: '',
-    pets_temprament: '',
-    pets_energy_levels: '',
-    pets_description: '',
-    pet_image_link: ''
+    name: '',
+    breed: '',
+    owner_id: owner.id,
+    energy_levels: 'Very Low',
+    images: '',
+    pats: 0,
+    treats: 0
   })
 
   function handleFormChange (event) {
     setForm({
       ...form,
+      owner_id: owner.id,
       [event.target.name]: event.target.value
     })
   }
 
   async function handleSubmit (event) {
     event.preventDefault()
-    dispatch(setForm(form))
-    await addPet(form)
-    history.push('/')
+    await addPet(form, owner.token)
+    history.push('/home')
+    console.log('pet added')
   }
 
   return (
@@ -34,29 +36,29 @@ function ProfilePage () {
         <form className='form-wrapper'>
           {/* pets_name  */}
           <p className='form-p'>Pet name:</p>
-          <input type='text' placeholder='Enter your dog&apos;s name' name='pets_name' value={form.pets_name} onChange={handleFormChange} required/>
+          <input type='text' placeholder='Enter your dog&apos;s name' name='name' value={form.name} onChange={handleFormChange} required/>
           {/* pets_breed */}
           <p className='form-p'>Breed:</p>
-          <input type='text' placeholder='Enter your dog&apos;s breed' name='pets_breed' value={form.pets_breed} onChange={handleFormChange} required/>
+          <input type='text' placeholder='Enter your dog&apos;s breed' name='breed' value={form.breed} onChange={handleFormChange} required/>
           {/* pets_energy_levels */}
           <p className='form-p'>Energy Level:</p>
-          <select id="energylevel" name="energylevel" onChange={handleFormChange}>
-            <option value="1">Very Low</option>
-            <option value="2">Low</option>
-            <option value="3">Moderate</option>
-            <option value="4">High</option>
-            <option value="5">Very High</option>
+          <select id="energy_levels" name="energy_levels" onChange={handleFormChange}>
+            <option value="Very Low">Very Low</option>
+            <option value="Low">Low</option>
+            <option value="Moderate">Moderate</option>
+            <option value="High">High</option>
+            <option value="Very High">Very High</option>
           </select>
           {/* pets_breed */}
           <p className='form-p'>Image Link:</p>
-          <input type='text' placeholder='Link to your dog&apos;s picture' name='pets_image' value={form.pets_image} onChange={handleFormChange} required/>
+          <input type='text' placeholder='Link to your dog&apos;s picture' name='images' value={form.images} onChange={handleFormChange} required/>
           {/* pets_description */}
           <p className='form-p'>Description:</p>
-          <textarea type='text' className='description-text' placeholder='Describe your dog in a short paragraph!' name='pets_description' value={form.pets_description} onChange={handleFormChange} required/>
+          <textarea type='text' className='description-text' placeholder='Describe your dog in a short paragraph!' name='description' value={form.description} required/>
 
         </form>
         <button className='btn' type='button' onClick={handleSubmit}>Submit</button>
-        
+
       </div>
     </>
   )

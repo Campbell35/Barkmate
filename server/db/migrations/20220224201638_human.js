@@ -5,6 +5,7 @@ exports.up = (knex) => {
     table.string('token')
     table.string('name')
     table.string('email')
+    table.integer('pats')
   })
 }
 

@@ -10,6 +10,7 @@ import PetProfile from './Profile/PetProfile'
 import FrontPage from './FrontPage'
 import Chat from './Chat'
 import HumanProfile from './Profile/HumanProfile'
+import Matches from './Matches'
 
 function App () {
   cacheUser()
@@ -18,6 +19,7 @@ function App () {
       <Route path='/home' component={FrontPage} />
       <Route path='/' component={Nav} />
       <Route path='/chat' component={Chat} />
+      <Route path='/matches' component={Matches} />
       <Route exact path='/fruits' component={Fruits} />
       <Route exact path='/profile/create' component={ProfilePage} />
       <Route exact path='/petprofile/create' component={CreatePetProfile} />

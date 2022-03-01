@@ -48,9 +48,9 @@ const Frontpage = () => {
   async function clickHandleLike () {
     await addLike(owner.id, Number(pet.owner_id), owner.token)
     setLiked(true)
-    getHumansByID(21, owner.token)
-      .then(res => console.log(res))
-      .catch(err => console.log(err.message))
+    // getHumansByID(21, owner.token)
+    // .then(res => console.log(res))
+    // .catch(err => console.log(err.message))
   }
 
   function clickHandleRight () {
@@ -91,10 +91,9 @@ const Frontpage = () => {
     return (
       <>
         <div className="dog-card-container">
-
           <div className="dog-card">
-            <h1>BARKMATES</h1>
-            {/* <Navigation/> */}
+            <Navigation/>
+            <img className='logoimg' src='/images/Logo.png'/>
             <img className="dog-card-nav" />
             <img className="dog-card-img" src={pet.images}/>
 
@@ -102,7 +101,7 @@ const Frontpage = () => {
 
             <p> Breed: {pet.breed}   &emsp; &emsp; &emsp; &emsp; &emsp;  Energy Level: {pet.energy_levels} </p>
 
-            <p> {pet.name}:"Hey babes! I am  a little lover boy! Come to bark with me! Woof! Woof! xoxo" </p>
+            <p> {pet.name}: &quot;{pet.quote}&quot; </p>
 
             {/* <p> VIEW PROFILE </p> */}
 
@@ -115,15 +114,16 @@ const Frontpage = () => {
               ? <div>
                 <button className="button21" onClick={clickSendPat}>
                   <div className="icon21">
-                    <svg viewBox="0 0 16 16" className="bi bi-telegram" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"></path>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chat-square-heart" viewBox="0 0 16 16">
+                      <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12ZM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2Z"/>
+                      <path d="M8 3.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
                     </svg>
                   </div>
                   <p className="hugs">Send Pat</p>
                 </button>
-                <p>Pats remaining: {pats}</p>
+                <p className='prtxt'>pats remaining: {pats}</p>
               </div>
-              : <p>You ran out of pats! :( Try again tomorrow</p>
+              : <p className='prtxt'>Out of daily pats!</p>
             }
             <div>
 
@@ -134,11 +134,11 @@ const Frontpage = () => {
                   return like.liked_human_id === Number(pet.owner_id)
                 }) || liked
                   ? <div className="container123">
-                    <img className='pawheart2' src='/images/heart.png'></img>
-                    <div className="centered123"><h3>Liked</h3></div>
+                    <img className='pawheart2' src='/images/likeme.png'></img>
+                    <p className='centered123'>Liked!</p>
                   </div>
 
-                  : <img className='pawheart2' src='/images/pawheart.png' onClick={clickHandleLike}/>
+                  : <img className='pawheart3' src='/images/likeme.png' onClick={clickHandleLike}/>
               }
 
             </div>

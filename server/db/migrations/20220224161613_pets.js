@@ -6,6 +6,7 @@ exports.up = (knex) => {
     table.string('owner_id').references('users.auth0_id')
     table.string('energy_levels')
     table.string('images')
+    table.string('quote')
     table.integer('pats')
     table.integer('treats')
   })

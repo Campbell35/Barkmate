@@ -1,49 +1,53 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
+import { IfAuthenticated, IfNotAuthenticated } from '../Authenticated'
 import { fallDown as Menu } from 'react-burger-menu'
-// import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
-// import { useAuth0 } from '@auth0/auth0-react'
-
-// import './sidebar.css'
-
-// const Navigation = () => {
-// const { loginWithRedirect, logout } = useAuth0()
-// function handleLogoff (e) {
-//   e.preventDefault()
-//   logout()
-//   // console.log('log off')
-// }
-
-// function handleRegister (e) {
-//   e.preventDefault()
-//   loginWithRedirect({
-//     redirectUri: `${window.location.origin}/profile`
-//   })
-// }
-
-// function handleSignIn (e) {
-//   e.preventDefault()
-//   loginWithRedirect()
-// }
 
 function Navigation () {
+  const { loginWithRedirect, logout } = useAuth0()
+  function handleLogoff (e) {
+    e.preventDefault()
+    logout()
+    // console.log('log off')
+  }
+
+  function handleRegister (e) {
+    e.preventDefault()
+    loginWithRedirect({
+      redirectUri: `${window.location.origin}/profile/create`
+    })
+  }
+
+  function handleSignIn (e) {
+    e.preventDefault()
+    loginWithRedirect({
+      redirectUri: `${window.location.origin}/home`
+    })
+  }
   return (
     <Menu>
-      <a className="menu-item" href="/">
+      <div className="nav-text">
+        <a className="menu-item" href="/home">
         Home
-      </a>
+        </a><br></br>
 
-      <a className="menu-item" href="/about">
-        About
-      </a>
+        <a className="menu-item" href="/profile">
+        Profile
+        </a><br></br>
 
-      <a className="menu-item" href="/services">
-        Services
-      </a>
+        <a className="menu-item" href="/chat">
+        Chat
+        </a><br></br>
 
-      <a className="menu-item" href="/contact">
-        Contact us
-      </a>
+        <IfAuthenticated>
+          <a href='/' className="menu-item" onClick={handleLogoff}>Log off</a>
+        </IfAuthenticated>
+        <IfNotAuthenticated>
+          <a href='/' className="menu-item" onClick={handleRegister}>Register or </a>
+          <a href='/' className="menu-item" onClick={handleSignIn}>Sign in</a>
+        </IfNotAuthenticated>
+      </div>
     </Menu>
   )
 }

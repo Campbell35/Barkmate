@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { addHuman, addUserToChat } from '../../api'
 import { setHuman } from '../../actions/human'
+import Navigation from '../Navigation/Navigation'
 
 function CreateProfilePage () {
   // set form state
   const dispatch = useDispatch()
   const [form, setForm] = useState({})
   const human = useSelector(state => state.human)
+  const history = useHistory()
   console.log(human)
 
   useEffect(() => {
@@ -29,13 +32,18 @@ function CreateProfilePage () {
   async function handleSubmit (event) {
     event.preventDefault()
     dispatch(setHuman(form))
+    history.push('/profile')
     await addHuman(form)
     await addUserToChat(form)
   }
 
   return (
-    <div className='full'>
-      <div className='form-div'>
+    <div className="dog-card-container">
+      <div className="dog-card">
+        <Navigation/>
+        <img className='logoimg' src='/images/Logo.png'/>
+        {/* <div className='full'> */}
+        {/* <div className='form-div'> */}
         <form className='form-wrapper'>
           {/* humans_name */}
           <p className='form-p'>Username:</p>
@@ -50,9 +58,10 @@ function CreateProfilePage () {
         <input type='radio' name='humans_gender' value='non_binary' onChange={handleFormChange}/>
         <label htmlFor='non_binary'>Non-Binary</label> */}
         </form>
-        <button type='button' className='coolBeans' onClick={handleSubmit}>Submit</button>
+        <button type='button' className='btnform' onClick={handleSubmit}>Submit</button>
       </div>
 
+      {/* </div></div> */}
     </div>
   )
 }

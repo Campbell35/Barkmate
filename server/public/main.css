@@ -11,7 +11,7 @@
   border: none;
   border-radius: 0.4rem;
   box-sizing: border-box;
-  background-color: white;
+  background-color: rgb(218, 218, 218);
   color: black;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -26,28 +26,27 @@
   transform: translate(-50%, -50%);
 }
 
-button {
-  background: linear-gradient(-45deg, #3f00b5, #9f69fe, #27c8b7, #3f00b5);
-  background-size: 800% 400%;
+.btnform {
+  background:rgb(65, 36, 1);
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 25px;
   padding: 1em 2em;
   display: inline-block;
   border: none;
   border-radius: 10px;
+  text-align: center;
   font-size: 17px;
   font-weight: 700;
   color: white;
-  transition: all 0.5s ease-in-out;
+  /* transition: all 0.1s ease-in-out; */
   animation: gradient 10s infinite cubic-bezier(0.62, 0.28, 0.23, 0.99) both;
 }
 
-button:hover {
-  animation: gradient 3s infinite;
-  transform: scale(1.05);
-}
-
-button:active {
-  animation: gradient 3s infinite;
-  transform: scale(0.8);
+.btnform:hover {
+  background:rgb(85, 40, 11)
 }
 
 @keyframes gradient {
@@ -77,7 +76,7 @@ button:active {
 }
 
 body {
-  background-color: #ccfbfe;
+  background-color: #fff7d7;
 }
 
 .btn {
@@ -109,8 +108,20 @@ body {
 .form-p {
   font-weight: bold;
   color: black;
-  margin-left: 1.5rem;
+  margin-left: 20%;
   margin-bottom: 1.5rem;
+}
+
+.subtitle-pets {
+  font-size: medium;
+  margin: 0px;
+}
+
+.mypet-text {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .description-text {
@@ -127,8 +138,8 @@ body {
   border: none;
   border-radius: 0.4rem;
   box-sizing: border-box;
-  background-color: #592e19;
-  color: white;
+  background-color: rgb(218, 218, 218);;
+  color: rgb(1, 0, 0);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -138,14 +149,16 @@ body {
 }
 
 .dog-card-container {
-  width: 50vw;
-  margin: 0 auto;
-  box-shadow: 3px 3px 5px 6px #ccc;
+  position: relative;
+  width: 95%;
+  max-width: 800px;
+  margin: auto;
+  box-shadow: 1px 1px 2px 2px rgb(255, 164, 111);
   border-radius: 15px;
   padding: 15px;
-  background-color: white;
-  font-family: "Balsamiq Sans", cursive;
-  color: black;
+  background-color: rgb(255, 252, 235);
+  font-family: "Comfortaa", cursive;
+  color: rgb(60, 44, 9);
 }
 
 .dog-card-img {
@@ -162,7 +175,7 @@ body {
 }
 
 .button .leftSideCard {
-  font-family: "Balsamiq Sans", cursive;
+  font-family: "Comfortaa", cursive;
   color: rgb(155, 25, 25);
   position: absolute;
   left: 150px;
@@ -171,7 +184,7 @@ body {
 }
 
 .button .rightSideCard {
-  font-family: "Balsamiq Sans", cursive;
+  font-family: "Comfortaa", cursive;
   color: rgb(155, 25, 25);
   position: absolute;
 
@@ -200,7 +213,7 @@ body {
 /* kateh */
 
 .container21 {
-  color: #2ca0d9;
+  color: #592a11;
   display: flex;
   justify-content: space-between;
 }
@@ -222,11 +235,12 @@ body {
 
 /* next button */
 .cssbuttons-io-button {
-  background: #2ca0d9;
+  background: #4a2805;
   color: white;
   font-family: inherit;
   padding: 0.35em;
   padding-left: 1.2em;
+  margin-top: 15px;
   font-size: 17px;
   font-weight: 500;
   border-radius: 0.9em;
@@ -242,7 +256,7 @@ body {
 }
 
 .cssbuttons-io-button .icon {
-  background: white;
+  background: rgb(255, 233, 207);
   margin-left: 1em;
   position: absolute;
   display: flex;
@@ -251,7 +265,7 @@ body {
   height: 2.2em;
   width: 2.2em;
   border-radius: 0.7em;
-  box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #3a2603;
   right: 0.3em;
   transition: all 0.3s;
 }
@@ -263,7 +277,7 @@ body {
 .cssbuttons-io-button .icon svg {
   width: 1.1em;
   transition: transform 0.3s;
-  color: #7b52b9;
+  color: #5c3c20;
 }
 
 .cssbuttons-io-button:hover .icon svg {
@@ -276,9 +290,10 @@ body {
 
 /* Send pat */
 .button21 {
-  background: #2ca0d9;
+  background: #4a2805;
   color: white;
   font-family: inherit;
+  margin-top: 15px;
   padding: 0.35em;
   padding-left: 1.2em;
   font-size: 17px;
@@ -296,7 +311,7 @@ body {
 }
 
 .button21 .icon21 {
-  background: white;
+  background: rgb(255, 233, 207);
   margin-left: 1em;
   position: absolute;
   display: flex;
@@ -305,7 +320,7 @@ body {
   height: 2.2em;
   width: 2.2em;
   border-radius: 0.7em;
-  box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #3c2d12;
   right: 0.3em;
   transition: all 0.3s;
 }
@@ -313,7 +328,7 @@ body {
 .icon21 svg {
   width: 1.1em;
   transition: transform 0.3s;
-  color: #7b52b9;
+  color: #3a2e13;
 }
 
 .button21:hover .icon21 svg {
@@ -325,34 +340,229 @@ body {
   border-radius: 0.5em;
 }
 
-.hugs {
+/* .hugs {
   padding-top: 0.8em;
-}
+} */
 
 /* like button */
 .pawheart2 {
-  width: 100px;
+  width: 90px;
   height: auto;
+  margin-top: 10px;
+  opacity: 0.2;
+}
+
+.pawheart3 {
+  width: 90px;
+  height: auto;
+  margin-top: 10px;
 }
 
 /* liked and heart */
 .container123 {
   position: relative;
   text-align: center;
-  color: white;
+  color: rgb(53, 34, 10);
 }
 
 .centered123 {
   position: absolute;
+  font-size: 30px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding-bottom: 50px;
 }
 
 /* hange the page layout for mobile portrait (320px) */
 
-@media only screen and (max-width: 320px) {
+/* @media only screen and (max-width: 320px) {
   .dog-card-container {
     background-color: #ccfbfe;
   }
+} */
+
+
+
+.nobull {
+  list-style-type: none;
+ }
+
+ .owner-pet-container {
+  width: 50vw;
+  margin: 0 auto;
+  box-shadow: 3px 3px 5px 6px #ccc;
+  border-radius: 15px;
+  padding: 15px;
+  background-color: white;
+  font-family: "Balsamiq Sans", cursive;
+  font-size: large;
+  color: black;
+  margin-bottom: 10px;
+}
+
+@font-face {
+  font-family: Bazoo Tow NF W01 Regular;
+  src: url(Bazoo\ Tow\ NF\ W01\ Regular.ttf);
+}
+
+.owner-pet-border {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-53%, 0%);
+  /* margin-left: 5%;
+  margin-right: 5%; */
+  border: 2px solid #006100;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  font-family: "Comfortaa", cursive;
+  font-size: 20pt;
+  text-align: center;
+}
+
+img.owner-pet-image {
+  border-radius: 5% !important;
+  width: 90%;
+  height: 70%;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  display: block;
+}
+.round-img {
+  border-radius: 15px;
+}
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: absolute;
+  width: 30px !important;
+  height: 20px !important;
+  top: 20px;
+  right: 30px;
+  margin-top: 9px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #3c220b;
+  border-radius: 5%;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #e48244;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  min-height: 10px;
+  min-width: 10px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: absolute;
+  height: 60% !important;
+  width: auto;
+  top: 20px;
+  backdrop-filter: blur(9px) !important;
+  border-radius: 2%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #35230d;
+  opacity: 0.85 !important;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.8em;
+  height: 100% !important;
+  overflow: hidden !important;
+  backdrop-filter: blur(9px) !important;
+  border-radius: 2%;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+  display: none !important;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+
+  color: #d1d1d1;
+  margin-bottom: 10px;
+  text-align: left;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.bm-item:hover {
+  color: #ffffff;
+}
+
+.bm-icon {
+  width: 10%;
+  height: 10%;
+}
+
+.nav-text a {
+  color: white !important;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+.nav-text a:hover {
+  color:rgb(64, 123, 224);
+  text-decoration: underline;
+  text-decoration-color: rgb(255, 212, 167);
+}
+
+.signup-text {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.logoimg {
+  width: 260px;
+  margin-bottom: 12px;
+}
+
+.prtxt {
+  font-size: small;
+  margin-top: 5px;
+  margin-left: 20px;
 }

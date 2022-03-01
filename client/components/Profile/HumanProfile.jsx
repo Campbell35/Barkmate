@@ -3,10 +3,11 @@ import { getPetsByOwner } from '../../api'
 import { useSelector } from 'react-redux'
 import Navigation from '../Navigation/Navigation'
 import WaitIndicator from '../WaitIndicator'
-const waiting = useSelector(state => state.waiting)
 
 function HumanProfile () {
   const owner = useSelector(state => state.human)
+  const waiting = useSelector(state => state.waiting)
+
   const [petArr, setPetArr] = useState([])
   useEffect(() => {
     getPetsByOwner(owner.id, owner.token)

@@ -29,7 +29,7 @@ function Navigation () {
     <Menu>
       <div className="nav-text">
         <a className="menu-item" href="/home">
-        Home
+        Barkmates
         </a><br></br>
 
         <a className="menu-item" href="/profile">
@@ -38,6 +38,10 @@ function Navigation () {
 
         <a className="menu-item" href="/chat">
         Chat
+        </a><br></br>
+
+        <a className="menu-item" href="/matches">
+        Matches
         </a><br></br>
 
         <IfAuthenticated>

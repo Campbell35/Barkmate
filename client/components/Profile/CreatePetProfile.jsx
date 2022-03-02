@@ -61,8 +61,8 @@ function ProfilePage () {
             <p className='form-p'>Image Link:</p>
             <input type='text' placeholder='Link to your dog&apos;s picture' name='images' value={form.images} onChange={handleFormChange} required/>
             {/* pets_description */}
-            <p className='form-p'>Description:</p>
-            <textarea type='text' className='description-text' placeholder='Describe your dog in a short paragraph!' name='quote' value={form.quote} onChange={handleFormChange} required/>
+            <p className='form-p'>Quote:</p>
+            <textarea type='text' className='description-text' placeholder='If your dog could talk, what would they say?' name='quote' value={form.quote} onChange={handleFormChange} required/>
 
           </form>
           <button type='button' className='btnform' onClick={handleSubmit}>Submit</button>

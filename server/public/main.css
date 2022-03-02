@@ -562,22 +562,22 @@ img.owner-pet-image {
 Sidebar wrapper styles
 Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
 */
+
 .bm-menu-wrap {
   position: absolute;
-  height: 60% !important;
-  width: auto;
+  height: 100% !important;
   top: 20px;
-  backdrop-filter: blur(9px) !important;
   border-radius: 2%;
 }
 
 /* General sidebar styles */
 .bm-menu {
   background: #35230d;
-  opacity: 0.85 !important;
+  opacity: 0.95 !important;
   padding: 2.5em 1.5em 0;
   font-size: 1.8em;
-  height: 100% !important;
+  height: 60% !important;
+  min-width: 60% !important;
   overflow: hidden !important;
   backdrop-filter: blur(9px) !important;
   border-radius: 2%;
@@ -660,4 +660,14 @@ Note: Beware of modifying this element as it can break the animations - you shou
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 50px;
+  max-height: 200px;
+}
+
+.loadingIcon2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  max-height: 100px;
 }

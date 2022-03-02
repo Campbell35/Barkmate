@@ -98,7 +98,7 @@ function Matches () {
 
     )
   } else {
-    return (<div> LOADING ... </div>)
+    return (<div className='loadingIcon'><img className='loadingIcon' src='images/dog_walk_loading.gif' alt='loading icon'></img></div>)
   }
 }
 // mapping over pets and display them as images

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { ChatEngine, getOrCreateChat } from 'react-chat-engine'
+import Navigation from './Navigation/Navigation'
 
 import { getHumansByID } from '../api'
 
@@ -63,24 +64,29 @@ function Chat () {
 
   function renderChatForm (creds) {
     setCreds(creds)
-    return (
-      <div>
-        <button onClick={() => loadNewMatches(creds)}>
-          Load Matches
-        </button>
-      </div>
-    )
+    return null
   }
 
   if (human.id) {
-    return (<ChatEngine
-      height='100vh' projectID='f2cbd1f4-72ae-4213-a08a-e4d0702bdb04' userName={human.name} userSecret={human.token} renderNewChatForm={(creds) => {
-        return renderChatForm(creds)
-      }
-      }
-    />)
+    return (<div className="dog-card-container">
+      <div className="dog-card">
+        <Navigation/>
+        <img className='logoimg' src='/images/Logo.png'/>
+        <ChatEngine
+          height='100vh' projectID='f2cbd1f4-72ae-4213-a08a-e4d0702bdb04' userName={human.name} userSecret={human.token} renderNewChatForm={(creds) => {
+            return renderChatForm(creds)
+          }
+          }
+          renderChatSettings={(chatAppState) => { return null }}
+          renderChatSettingsTop={(creds, chat) => { return null }}
+          renderPeopleSettings={(creds, chat) => { return null }}
+          renderPhotosSettings={(chat) => { return null }}
+          renderOptionsSettings={(creds, chat) => { return null }}
+          renderIceBreaker={(chat) => { return <div className='ce-no-msg-p'><p>no messages here yet</p></div> }}/>
+      </div>
+    </div>)
   } else {
-    return (<div className='loadingIcon'><img src='images/dog_walk_loading.gif' alt='loading icon'></img></div>)
+    return (<div className='loadingIcon'><img src='images/dog_walk_loading.gif' className='loadingIcon' alt='loading icon'></img></div>)
   }
 }
 

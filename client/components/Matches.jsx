@@ -8,7 +8,7 @@ function Matches () {
   const matches = useSelector(state => state.matches)
   const [petArr, setPetArr] = useState([])
   const [theID, setTheID] = useState([])
-  const [unfurl, setUnfurl] = useState(false)
+  const [unfurl, setUnfurl] = useState(true)
   const [matchedHuman, setMatchedHuman] = useState([])
 
   function setStuff () {
@@ -57,41 +57,43 @@ function Matches () {
         <div className="dog-card">
           <Navigation/>
           <img className='logoimg' src='/images/Logo.png'/>
-          <h1>My matches</h1>
-          {!unfurl
-            ? <p onClick={handleUnfurl}>click to show dogs + </p>
-            : <p onClick={handleUnfurl}>click to hide dogs - </p>
-          }
-          {matchedHuman
-            ? matchedHuman.map(human => {
-              const doggies = petArr.filter(pet => Number(pet.owner_id) === Number(human.id))
-              return (
-                <>
-                  <p key="human.id" onClick={handleUnfurl}>{human.name}
-                    {unfurl
-                      ? doggies.map(pet => (
-                        <>
-                          <ul className="nobull">
-                            <div className ="owner-pet-border2">
-                              <li>
-                                <div className='round-img'>
-                                  <img className ="owner-pet-image" src={pet.images}>
+          <div className='centeredem'>
+            <h1>My Matches</h1>
+            {matchedHuman
+              ? matchedHuman.map(human => {
+                const doggies = petArr.filter(pet => Number(pet.owner_id) === Number(human.id))
+                return (
+                  <>
+                    <h2 key="human.id" onClick={handleUnfurl}>{human.name}
+                      {unfurl
+                        ? doggies.map(pet => (
+                          <>
+                            <ul className="nobull">
+                              <div className ="owner-pet-border2">
+                                <li>
+                                  <div className='round-img'>
+                                    <img className ="owner-pet-image" src={pet.images}>
 
-                                  </img></div>
-                                <div className='mypet-text'>
-                                  {pet.name}<br></br></div>
-                              </li>
-                            </div>
-                            <br></br>
-                          </ul>
-                        </>
-                      ))
-                      : <p></p>
-                    }
-                  </p></>)
-            })
-            : <p>loading</p>
-          }
+                                    </img></div>
+                                  <div className='mypet-text'>
+                                    {pet.name}<br></br></div>
+                                </li>
+                              </div>
+                              <br></br>
+                            </ul>
+                          </>
+                        ))
+                        : <p></p>
+                      }
+                    </h2></>)
+              })
+              : <p>loading</p>
+            }
+            {!unfurl
+              ? <p onClick={handleUnfurl}>click to show dogs + </p>
+              : <p onClick={handleUnfurl}>click to hide dogs - </p>
+            }
+          </div>
         </div>
         <button className='btnform' onClick={chatBtnClick}>Chat</button>
       </div>

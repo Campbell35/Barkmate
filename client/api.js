@@ -5,7 +5,7 @@ const rootUrl = '/api/v1'
 
 export function getPetsByOwner (ownerId, token) {
   return request.get(`${rootUrl}/pets/ownerId`)
-    // .set('authorization', `Bearer ${token}`)
+    .set('authorization', `Bearer ${token}`)
     .query({ query: ownerId })
     .then(res => {
       return res.body

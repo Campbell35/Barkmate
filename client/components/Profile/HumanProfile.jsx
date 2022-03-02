@@ -2,17 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { getPetsByOwner } from '../../api'
 import { useSelector } from 'react-redux'
 import Navigation from '../Navigation/Navigation'
-
-
-function handleAdd (e) {
-  e.preventDefault()
-  loginWithRedirect({
-    redirectUri: `${window.location.origin}/petprofile/create`
-  })
-}
+import { useNavigate } from 'react-router-dom'
 
 function HumanProfile () {
   const owner = useSelector(state => state.human)
+  const navigate = useNavigate()
+  console.log(owner)
 
   const [petArr, setPetArr] = useState([])
   useEffect(() => {
@@ -30,6 +25,10 @@ function HumanProfile () {
       })
       .catch(err => console.log(err.message))
   }, [owner.token])
+
+  function handleAdd (e) {
+    navigate('/petprofile/create')
+  }
 
   if (owner.token) {
     return (
@@ -53,17 +52,17 @@ function HumanProfile () {
                         {pet.name}<br></br><span className='subtitle-pets'>
                     ENERGY LEVELS: {pet.energy_levels} <br></br>
                     TOTAL PATS: {pet.pats} <br></br>
-                    MY QUOTE: {pet.quote}</span></div>                   
-                    <div>
-                     <button className='btnform' onClick={handleAdd}>Add a pet</button>
-                    </div>
-  
-                  </li>
-                </div>
-                <br></br>
-              </ul>
-            </>
-          ))}
+                    MY QUOTE: {pet.quote}</span></div>
+                    </li>
+                  </div>
+                  <br></br>
+                </ul>
+              </>
+            ))}
+            <div>
+              <button className='btnform' onClick={handleAdd}>Add a pet</button>
+            </div>
+          </div>
         </div>
       </>
     )
@@ -71,10 +70,5 @@ function HumanProfile () {
     return (<div className='loadingIcon'><img className='loadingIcon' src='images/dog_walk_loading.gif' alt='loading icon'></img></div>)
   }
 }
-// mapping over pets and display them as images
-// add a new pet
-// username
-// post code
-// edit profile button
 
 export default HumanProfile

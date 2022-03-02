@@ -7,10 +7,12 @@ import FrontPage from './FrontPage'
 import Chat from './Chat'
 import HumanProfile from './Profile/HumanProfile'
 import SignUpPage from './SignUpPage'
+import Matches from './Matches'
 
 function App () {
   cacheUser()
   return (
+
     <BrowserRouter>
       <Routes>
         <Route path="/home" element={<FrontPage />} />
@@ -19,6 +21,7 @@ function App () {
         <Route path="/profile/create" element={<ProfilePage />} />
         <Route path="/petprofile" element={<PetProfile />} />
         <Route path="/profile" element={<HumanProfile />} />
+        <Route path="/matches" element={<Matches />} />
 
       </Routes>
     </BrowserRouter>

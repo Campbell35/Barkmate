@@ -13,6 +13,16 @@ export function getPetsByOwner (ownerId, token) {
     .catch(logError)
 }
 
+export function getPetsByOwners (ownerIds, token) {
+  return request.get(`${rootUrl}/pets/ownerIds`)
+    .set('authorization', `Bearer ${token}`)
+    .query({ query: ownerIds })
+    .then(res => {
+      return res.body
+    })
+    .catch(logError)
+}
+
 export function getPatsByID (id, token) {
   return request.get(`${rootUrl}/human/pat`)
     .set('authorization', `Bearer ${token}`)
@@ -105,6 +115,7 @@ export function getHuman (token) {
 }
 
 export function getHumansByID (ids, token) {
+  console.log(ids)
   return request.get(`${rootUrl}/human/chat`)
     .set('authorization', `Bearer ${token}`)
     .query({ query: ids })

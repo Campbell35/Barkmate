@@ -8,7 +8,7 @@ function Navigation () {
   const { loginWithRedirect, logout } = useAuth0()
   function handleLogoff (e) {
     e.preventDefault()
-    logout()
+    logout({ returnTo: `${window.location.origin}/signup` })
     // console.log('log off')
   }
 

@@ -27,8 +27,7 @@ function ProfilePage () {
     })
   }
 
-  function handleSubmit (event) {
-    event.preventDefault()
+  function handleSubmit () {
     addPet(form, owner.token)
     navigate('/profile')
     console.log('pet added')

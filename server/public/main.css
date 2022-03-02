@@ -500,6 +500,9 @@ body {
 .owner-pet-border2 {
   position: relative;
   max-width: 200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, 0);
   /* margin-left: 5%;
   margin-right: 5%; */
   border: 2px solid #006100;
@@ -510,6 +513,7 @@ body {
   font-family: "Comfortaa", cursive;
   font-size: 20pt;
   text-align: center;
+  margin-top: -22px;
 }
 
 img.owner-pet-image {
@@ -670,4 +674,108 @@ Note: Beware of modifying this element as it can break the animations - you shou
   align-items: center;
   margin-top: 0px;
   max-height: 100px;
+}
+
+.centeredem {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
+/* chat stuff */
+
+#ce-feed-container {
+background-color: #fbe4c3  !important;
+overflow: hidden !important;
+width: 150% !important;
+border-radius: 10px !important;
+}
+
+.ce-no-msg-p {
+  text-align: center;
+} 
+
+.ce-chat-title {
+width: 150% !important;
+background-color: #fbe4c3  !important;
+border-radius: 10px;
+}
+
+.ce-chat-title-container {
+color: #4a3015 !important;
+overflow: hidden !important;
+border-radius: 10px !important;
+}
+
+#msg-form-container {
+width: 150% !important;
+background-color: #fffdeb !important;
+border-radius: 10px !important;
+}
+
+#ce-send-message-button {
+background-color: #4c3217 !important;
+}
+
+.ce-settings-column {
+visibility: hidden !important;
+height: 0px !important;
+width: 0px !important;
+}
+
+.ce-avatar-dot {
+visibility: hidden !important;
+}
+
+.ce-my-message-bubble {
+Background-color: #4c3217 !important;
+}
+
+.ce-chat-list { 
+overflow: hidden !important;
+border-right: 0px !important;
+}
+
+.ce-chat-engine {
+background-color: #fffdeb !important;
+}
+
+.ce-chats-container {
+background-color: #d7c1a2 !important;
+border-radius: 10px !important;
+}
+
+.ce-chat-list-column {
+background-color: #fffdeb !important;
+}
+
+.ql-toolbar.ql-snow {
+border-radius: 10px !important;
+}
+
+.ql-container.ql-snow {
+border-radius: 10px !important;
+}
+
+.ce-chat-feed {
+background-color: #fffdeb !important;
+}
+
+.ce-active-chat-card {
+background-color: #463112 !important;
+}
+
+.ce-active-chat-card .ce-chat-title-text {
+color: #ffdbbc !important;
+}
+
+.ce-chat-unread-dot {
+background-color: #247849 !important;
+}
+
+.ce-message-timestamp {
+color: #d59e6f
 }

@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { addPet } from '../../api'
 import Navigation from '../Navigation/Navigation'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function ProfilePage () {
   const owner = useSelector(state => state.human)
-  const history = useHistory()
+  const navigate = useNavigate()
   console.log(owner)
   const [form, setForm] = useState({
     name: '',
@@ -30,7 +30,7 @@ function ProfilePage () {
   async function handleSubmit (event) {
     event.preventDefault()
     await addPet(form, owner.token)
-    history.push('/profile')
+    navigate('/profile')
     console.log('pet added')
   }
 

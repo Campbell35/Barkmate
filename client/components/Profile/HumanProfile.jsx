@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { getPetsByOwner } from '../../api'
 import { useSelector } from 'react-redux'
 import Navigation from '../Navigation/Navigation'
-import WaitIndicator from '../WaitIndicator'
 
 function HumanProfile () {
   const owner = useSelector(state => state.human)
-  const waiting = useSelector(state => state.waiting)
 
   const [petArr, setPetArr] = useState([])
   useEffect(() => {
@@ -25,9 +23,8 @@ function HumanProfile () {
   }, [owner.token])
 
   if (owner.token) {
-    return (waiting
-      ? <WaitIndicator />
-      : <>
+    return (
+      <>
         <div className="dog-card-container">
           <div className="dog-card">
             <Navigation/>
@@ -59,7 +56,7 @@ function HumanProfile () {
       </>
     )
   } else {
-    return (<div> LOADING ... </div>)
+    return (<div className='loadingIcon'><img className='loadingIcon' src='images/dog_walk_loading.gif' alt='loading icon'></img></div>)
   }
 }
 // mapping over pets and display them as images

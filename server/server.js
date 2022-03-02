@@ -17,7 +17,7 @@ server.use(express.static(path.join(__dirname, 'public')))
 
 // anything below here requires auth
 server.use('/api', ensureUser)
-// server.use('/api', checkJwt)
+server.use('/api', checkJwt)
 
 server.use('/api/v1/fruits', fruitRoutes)
 server.use('/api/v1/users', userRoutes)

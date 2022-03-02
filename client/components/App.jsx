@@ -8,7 +8,6 @@ import FrontPage from './FrontPage'
 import Fruits from './Fruits'
 import Chat from './Chat'
 import HumanProfile from './Profile/HumanProfile'
-import Nav from './Nav'
 import SignUpPage from './SignUpPage'
 
 function App () {

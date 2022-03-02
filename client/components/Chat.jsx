@@ -79,7 +79,9 @@ function Chat () {
       }
       }
     />)
-  } else { return (<p>loading...</p>) }
+  } else {
+    return (<div className='loadingIcon'><img src='images/dog_walk_loading.gif' alt='loading icon'></img></div>)
+  }
 }
 
 export default Chat

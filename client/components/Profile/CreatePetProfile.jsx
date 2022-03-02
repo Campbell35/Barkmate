@@ -27,9 +27,9 @@ function ProfilePage () {
     })
   }
 
-  async function handleSubmit (event) {
+  function handleSubmit (event) {
     event.preventDefault()
-    await addPet(form, owner.token)
+    addPet(form, owner.token)
     navigate('/profile')
     console.log('pet added')
   }

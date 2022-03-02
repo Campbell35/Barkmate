@@ -3,6 +3,14 @@ import { getPetsByOwner } from '../../api'
 import { useSelector } from 'react-redux'
 import Navigation from '../Navigation/Navigation'
 
+
+function handleAdd (e) {
+  e.preventDefault()
+  loginWithRedirect({
+    redirectUri: `${window.location.origin}/petprofile/create`
+  })
+}
+
 function HumanProfile () {
   const owner = useSelector(state => state.human)
 
@@ -44,14 +52,17 @@ function HumanProfile () {
                         {pet.name}<br></br><span className='subtitle-pets'>
                     ENERGY LEVELS: {pet.energy_levels} <br></br>
                     TOTAL PATS: {pet.pats} <br></br>
-                    MY QUOTE: {pet.quote}</span></div>
-                    </li>
-                  </div>
-                  <br></br>
-                </ul>
-              </>
-            ))}
-          </div>
+                    MY QUOTE: {pet.quote}</span></div>                   
+                    <div>
+                     <button className='btnform' onClick={handleAdd}>Add a pet</button>
+                    </div>
+  
+                  </li>
+                </div>
+                <br></br>
+              </ul>
+            </>
+          ))}
         </div>
       </>
     )

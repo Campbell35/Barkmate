@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { addHuman, addUserToChat } from '../../api'
 import { setHuman } from '../../actions/human'
 import Navigation from '../Navigation/Navigation'
@@ -10,7 +10,7 @@ function CreateProfilePage () {
   const dispatch = useDispatch()
   const [form, setForm] = useState({})
   const human = useSelector(state => state.human)
-  const history = useHistory()
+  const navigate = useNavigate()
   console.log(human)
 
   useEffect(() => {
@@ -32,7 +32,8 @@ function CreateProfilePage () {
   async function handleSubmit (event) {
     event.preventDefault()
     dispatch(setHuman(form))
-    history.push('/profile')
+    navigate('/profile')
+    console.log(form)
     await addHuman(form)
     await addUserToChat(form)
   }

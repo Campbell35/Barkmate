@@ -10,6 +10,7 @@ import Chat from './Chat'
 import HumanProfile from './Profile/HumanProfile'
 import Nav from './Nav'
 import SignUpPage from './SignUpPage'
+import Matches from './Matches'
 
 function App () {
   cacheUser()
@@ -24,6 +25,7 @@ function App () {
         <Route exact path='/petprofile/create' component={CreatePetProfile} />
         <Route exact path='/petprofile' component={PetProfile} />
         <Route exact path='/profile' component={HumanProfile} />
+        <Route exact path='/matchestest' component={Matches} />
 
       </Router>
     </>

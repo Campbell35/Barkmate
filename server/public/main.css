@@ -497,6 +497,21 @@ body {
   text-align: center;
 }
 
+.owner-pet-border2 {
+  position: relative;
+  max-width: 200px;
+  /* margin-left: 5%;
+  margin-right: 5%; */
+  border: 2px solid #006100;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  font-family: "Comfortaa", cursive;
+  font-size: 20pt;
+  text-align: center;
+}
+
 img.owner-pet-image {
   border-radius: 5% !important;
   width: 90%;

@@ -9,6 +9,7 @@ function HumanProfile () {
   useEffect(() => {
     getPetsByOwner(owner.id, owner.token)
       .then(pets => {
+        console.log(pets)
         const thepets = setPetArr(pets.petsByOwner)
         return thepets
       })

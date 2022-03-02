@@ -9,6 +9,11 @@ function getPetsByOwner (id, db = connection) {
     .where('owner_id', id)
 }
 
+function getPetsByOwners (ids, db = connection) {
+  return db('pets').select()
+    .whereIn('owner_id', ids)
+}
+
 function getPetsByID (id, db = connection) {
   return db('pets').select()
     .where('id', id)
@@ -41,5 +46,6 @@ module.exports = {
   getPets,
   addAPet,
   getPetsByOwner,
+  getPetsByOwners,
   addAPat
 }

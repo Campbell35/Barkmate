@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
 import { addHuman, addUserToChat } from '../../api'
 import { setHuman } from '../../actions/human'
 import Navigation from '../Navigation/Navigation'
@@ -10,7 +9,6 @@ function CreateProfilePage () {
   const dispatch = useDispatch()
   const [form, setForm] = useState({})
   const human = useSelector(state => state.human)
-  const history = useHistory()
   console.log(human)
 
   useEffect(() => {
@@ -29,10 +27,9 @@ function CreateProfilePage () {
     })
   }
 
-  async function handleSubmit (event) {
-    event.preventDefault()
+  async function handleSubmit () {
     dispatch(setHuman(form))
-    history.push('/profile')
+    window.location.assign('/profile')
     await addHuman(form)
     await addUserToChat(form)
   }
@@ -49,7 +46,7 @@ function CreateProfilePage () {
           <p className='form-p'>Username:</p>
           <input type='text' placeholder='Choose your Username' name='name' value={form.name} onChange={handleFormChange} required/>
           <p className='form-p'>Post code:</p>
-          <input type='text' placeholder='Enter your post code' name='post_code' value={form.post_code} required/>
+          <input type='text' placeholder='Enter your post code' name='post_code' value={form.post_code} required/> <br></br>
           {/* humans_gender */}
           {/* <input type='radio' name='humans_gender' value='female' onChange={handleFormChange}/>
         <label htmlFor='female'>Female</label>
@@ -57,8 +54,8 @@ function CreateProfilePage () {
         <label htmlFor='male'>Male</label>
         <input type='radio' name='humans_gender' value='non_binary' onChange={handleFormChange}/>
         <label htmlFor='non_binary'>Non-Binary</label> */}
+          <button type='button' className='btnform' onClick={handleSubmit}>Submit</button>
         </form>
-        <button type='button' className='btnform' onClick={handleSubmit}>Submit</button>
       </div>
 
       {/* </div></div> */}

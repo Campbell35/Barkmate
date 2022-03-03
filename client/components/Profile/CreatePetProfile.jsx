@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { addPet } from '../../api'
 import Navigation from '../Navigation/Navigation'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function ProfilePage () {
   const owner = useSelector(state => state.human)
-  const history = useHistory()
+  const navigate = useNavigate()
   console.log(owner)
   const [form, setForm] = useState({
     name: '',
@@ -27,10 +27,9 @@ function ProfilePage () {
     })
   }
 
-  async function handleSubmit (event) {
-    event.preventDefault()
-    await addPet(form, owner.token)
-    history.push('/profile')
+  function handleSubmit () {
+    addPet(form, owner.token)
+    navigate('/profile')
     console.log('pet added')
   }
 
@@ -61,8 +60,8 @@ function ProfilePage () {
             <p className='form-p'>Image Link:</p>
             <input type='text' placeholder='Link to your dog&apos;s picture' name='images' value={form.images} onChange={handleFormChange} required/>
             {/* pets_description */}
-            <p className='form-p'>Description:</p>
-            <textarea type='text' className='description-text' placeholder='Describe your dog in a short paragraph!' name='quote' value={form.quote} onChange={handleFormChange} required/>
+            <p className='form-p'>Quote:</p>
+            <textarea type='text' className='description-text' placeholder='If your dog could talk, what would they say?' name='quote' value={form.quote} onChange={handleFormChange} required/>
 
           </form>
           <button type='button' className='btnform' onClick={handleSubmit}>Submit</button>

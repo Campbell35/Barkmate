@@ -1,32 +1,33 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { cacheUser } from '../auth0-utils'
-import ProfilePage from './Profile/CreateProfilePage'
-import CreatePetProfile from './Profile/CreatePetProfile'
+import CreateProfilePage from './Profile/CreateProfilePage'
 import PetProfile from './Profile/PetProfile'
+import CreatePetProfile from './Profile/CreatePetProfile'
 import FrontPage from './FrontPage'
-import Fruits from './Fruits'
 import Chat from './Chat'
 import HumanProfile from './Profile/HumanProfile'
-import Nav from './Nav'
 import SignUpPage from './SignUpPage'
+import Matches from './Matches'
 
 function App () {
   cacheUser()
   return (
-    <>
-      <Router>
-        <Route path='/home' component={FrontPage} />
-        <Route path='/chat' component={Chat} />
-        <Route exact path='/fruits' component={Fruits} />
-        <Route exact path='/signup' component={SignUpPage} />
-        <Route exact path='/profile/create' component={ProfilePage} />
-        <Route exact path='/petprofile/create' component={CreatePetProfile} />
-        <Route exact path='/petprofile' component={PetProfile} />
-        <Route exact path='/profile' component={HumanProfile} />
 
-      </Router>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/home" element={<FrontPage />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/profile/create" element={<CreateProfilePage />} />
+        <Route path="/petprofile/create" element={<CreatePetProfile />} />
+        <Route path="/petprofile" element={<PetProfile />} />
+        <Route path="/profile" element={<HumanProfile />} />
+        <Route path="/matches" element={<Matches />} />
+
+      </Routes>
+    </BrowserRouter>
+
   )
 }
 

@@ -1,4 +1,5 @@
 const express = require('express')
+const { typeOf } = require('react-chat-engine')
 const db = require('../db/humans')
 
 const router = express.Router()
@@ -21,9 +22,15 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/chat', async (req, res) => {
+  console.log(req.query)
   try {
-    const humans = await db.getHumans(req.query.query)
-    res.json({ humans })
+    if (typeof req.query.query === 'object') {
+      const humans = await db.getHumans(req.query.query)
+      res.json({ humans })
+    } else {
+      const humans = await db.getHumans([req.query.query])
+      res.json({ humans })
+    }
   } catch (err) {
     console.error(err)
     res.status(500).send(err.message)

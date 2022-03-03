@@ -29,6 +29,21 @@ router.get('/ownerId', async (req, res) => {
   }
 })
 
+router.get('/ownerIds', async (req, res) => {
+  try {
+    if (typeof req.query.query === 'object') {
+      const petsByOwners = await db.getPetsByOwners(req.query.query)
+      res.json({ petsByOwners })
+    } else {
+      const petsByOwners = await db.getPetsByOwners([req.query.query])
+      res.json({ petsByOwners })
+    }
+  } catch (err) {
+    console.error(err)
+    res.status(500).send(err.message)
+  }
+})
+
 router.post('/', async (req, res) => {
   const pet = req.body
   try {

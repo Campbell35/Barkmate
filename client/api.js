@@ -1,5 +1,4 @@
 import request from 'superagent'
-
 import store from './store'
 
 const rootUrl = '/api/v1'
@@ -8,6 +7,16 @@ export function getPetsByOwner (ownerId, token) {
   return request.get(`${rootUrl}/pets/ownerId`)
     .set('authorization', `Bearer ${token}`)
     .query({ query: ownerId })
+    .then(res => {
+      return res.body
+    })
+    .catch(logError)
+}
+
+export function getPetsByOwners (ownerIds, token) {
+  return request.get(`${rootUrl}/pets/ownerIds`)
+    .set('authorization', `Bearer ${token}`)
+    .query({ query: ownerIds })
     .then(res => {
       return res.body
     })
@@ -59,14 +68,6 @@ function authRequest (method, path, params, token) {
   return req
 }
 
-export function getFruits () {
-  return request.get(`${rootUrl}/fruits`)
-    .then(res => {
-      return res.body.fruits
-    })
-    .catch(logError)
-}
-
 export function getPets (token) {
   return request.get(`${rootUrl}/pets`)
     .set('authorization', `Bearer ${token}`)
@@ -97,14 +98,6 @@ export function addPet (pet, token) {
     .catch(logError)
 }
 
-export function addFruit (fruit, token) {
-  return request.post(`${rootUrl}/fruits`)
-    .set('authorization', `Bearer ${token}`)
-    .send({ fruit })
-    .then(res => res.body.fruits)
-    .catch(logError)
-}
-
 export function addHuman (human) {
   return authRequest('post', '/human', human)
     .then(res => {
@@ -122,6 +115,7 @@ export function getHuman (token) {
 }
 
 export function getHumansByID (ids, token) {
+  console.log(ids)
   return request.get(`${rootUrl}/human/chat`)
     .set('authorization', `Bearer ${token}`)
     .query({ query: ids })
@@ -164,7 +158,6 @@ export function getMatches (id, token) {
     })
     .then(matches => {
       const myMatches = matches.filter(match => match.human_one === id || match.human_two === id)
-      // console.log(myLikes)
       return myMatches
     })
     .catch(logError)
@@ -183,22 +176,6 @@ export function addUserToChat (user, token) {
   // .set('authorization', `Bearer ${token}`)
     .send(chatUser)
     .then(res => res.body.user)
-    .catch(logError)
-}
-
-export function updateFruit (fruit, token) {
-  return request.put(`${rootUrl}/fruits`)
-    .set('authorization', `Bearer ${token}`)
-    .send({ fruit })
-    .then(res => res.body.fruits)
-    .catch(logError)
-}
-
-export function deleteFruit (id, token) {
-  return request.delete(`${rootUrl}/fruits/${id}`)
-    .set('authorization', `Bearer ${token}`)
-    .send()
-    .then(res => res.body.fruits)
     .catch(logError)
 }
 
